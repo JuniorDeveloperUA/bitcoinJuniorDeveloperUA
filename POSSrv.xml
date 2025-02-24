@@ -1,0 +1,5239 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>POSServer</name>
+    </assembly>
+    <members>
+        <member name="T:POSServer.Analitics">
+            <summary>
+            Analitics data
+            </summary>
+        </member>
+        <member name="M:POSServer.Analitics.#ctor(System.String,System.String)">
+            <summary>
+            Analitics
+            </summary>
+            <param name="measurementId"></param>
+            <param name="apiSecret"></param>
+        </member>
+        <member name="M:POSServer.Analitics.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Analitics
+            </summary>
+            <param name="measurementId"></param>
+            <param name="apiSecret"></param>
+            <param name="clientId"></param>
+        </member>
+        <member name="M:POSServer.Analitics.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Analitics
+            </summary>
+            <param name="measurementId"></param>
+            <param name="apiSecret"></param>
+            <param name="clientId"></param>
+            <param name="appName"></param>
+        </member>
+        <member name="M:POSServer.Analitics.Write(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Send data to analitics server
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Analitics.RegisterEvent(POSServer.Event)">
+            <summary>
+            Send data to analitics server
+            </summary>
+            <param name="eventParams"></param>
+            <returns></returns>
+        </member>
+        <member name="T:POSServer.Payload">
+            <summary>
+            Payload
+            </summary>
+        </member>
+        <member name="P:POSServer.Payload.client_id">
+            <summary>
+            ID client
+            </summary>
+        </member>
+        <member name="P:POSServer.Payload.timestamp_micros">
+            <summary>
+            timestamp_micros
+            </summary>
+        </member>
+        <member name="P:POSServer.Payload.non_personalized_ads">
+            <summary>
+            non_personalized_ads
+            </summary>
+        </member>
+        <member name="P:POSServer.Payload.events">
+            <summary>
+            events
+            </summary>
+        </member>
+        <member name="M:POSServer.Payload.#ctor">
+            <summary>
+            Payload
+            </summary>
+        </member>
+        <member name="T:POSServer.Event">
+            <summary>
+            Event
+            </summary>
+        </member>
+        <member name="P:POSServer.Event.name">
+            <summary>
+            Event name
+            </summary>
+        </member>
+        <member name="P:POSServer.Event.params">
+            <summary>
+            Event data
+            </summary>
+        </member>
+        <member name="T:POSServer.Item">
+            <summary>
+            Item
+            </summary>
+        </member>
+        <member name="P:POSServer.Item.params">
+            <summary>
+            Item data
+            </summary>
+        </member>
+        <member name="T:POSServer.AnaliticServices.LogginService">
+            <summary>
+            Loggin service
+            </summary>
+        </member>
+        <member name="T:POSServer.Controllers.ControllerExecution`1">
+            <summary>
+            ControllerExecution
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:POSServer.Controllers.ControllerExecution`1.#ctor(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            ControllerExecution
+            </summary>
+            <param name="httpContext"></param>
+        </member>
+        <member name="M:POSServer.Controllers.ControllerExecution`1.#ctor(System.String)">
+            <summary>
+            ControllerExecution
+            </summary>
+            <param name="jsonData"></param>
+        </member>
+        <member name="M:POSServer.Controllers.ControllerExecution`1.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:POSServer.Controllers.POSController">
+            <summary>
+            POS Controller
+            </summary>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.Test">
+            <summary>
+            Формування тестового запиту до сервера.
+            </summary>
+            <returns></returns>
+            <remarks>
+            Підтримує протокол ws://
+            </remarks>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.TestWebSocket">
+            <summary>
+            Test websocket connect
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.Get">
+            <summary>
+            Test GET method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.ExitApplication">
+            <summary>
+            Close webserver application
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.testprotocol(CommonClasses.ProtocolType,System.Object)">
+            <summary>
+            Test protocol answer
+            </summary>
+            <param name="protocol"></param>
+            <param name="protocolData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.GetInfo(System.String)">
+            <summary>
+            Test get info
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.GetDevices(System.String)">
+             <summary>
+             Отримання списку терміналів, зареєстрованих на сервері.
+             </summary>
+             <returns>Повертає масив терміналів, зареєстрованих на сервері.</returns>
+             <remarks>
+             Sample request:
+            
+                 GET /api/devices
+            
+             </remarks>
+             <response code="200">Повертає масив терміналів, зареєстрованих на сервері.</response>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.GetDeviceConfig(System.String)">
+            <summary>
+            Отримання інформації про платіжний термінал.
+            </summary>
+            <param name="device_id">Ідентифікатор терміналу</param>
+            <returns>data terminal</returns>
+            <response code="200">Повертає налаштування терміналу.</response>
+            <response code="404">Термінал з переданим ідентифікатором відсутній на сервері.</response>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.GetTerminalInfo(CommonClasses.ProtocolType,System.Object)">
+            <summary>
+            Отримання інформації про термінал
+            </summary>
+            <param name="protocol"></param>
+            <param name="connectParamsDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.GetAcquirers(System.String)">
+            <summary>
+            Отримання списку екваєр, які запрограмовані банком на терміналі
+            </summary>
+            <param name="device_id">Ідентифікатор терміналу</param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.GetMerchants(CommonClasses.DeviceType,CommonClasses.ProtocolType,System.Object)">
+            <summary>
+            Отримання списку мерчантів, які запрограмовані банком на терміналі
+            </summary>
+            <param name="bank">Ідентифікатор банку</param>
+            <param name="protocol">Тип протоколу, який налаштований на терміналі</param>
+            <param name="connectParamsDTO">Параметри підключення до терміналлу</param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.DeviceDisconnect(System.String)">
+            <summary>
+            Закриття підключення до терміналу. Термінал стає доступним для використання іншими програмами.
+            </summary>
+            <param name="device_id">Ідентифікатор терміналу</param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.DeviceRegisterSocket">
+            <summary>
+            Реєстрація терміналу на сервері. Використовується для сокет з'єднання
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.DeviceRegister(CommonClasses.DeviceDTO)">
+            <summary>
+            Реєстрація терміналу на сервері
+            </summary>
+            <param name="deviceDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.DeviceDelete(System.String)">
+            <summary>
+            Видалення терміналу зі списку доступних пристроїв.
+            </summary>
+            <param name="device_id">Ідентифікатор терміналу</param>
+            <returns></returns>
+            <response code="200">Пристрій успішно видалений.</response>
+            <response code="404">Пристрій відсутній.</response>
+            <response code="500">Помилка вилучення пристрою.</response>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.DeviceConnect(System.String)">
+            <summary>
+            Встановлення з'єднання з терміналом для відправки команд.
+            </summary>
+            <param name="device_id">Ідентифікатор терміналу</param>
+            <returns></returns>
+            <response code="200">Повертає налаштування терміналу.</response>
+            <response code="400">Помилка обробки параметрів терміналу.</response>
+            <response code="404">Термінал з переданим ідентифікатором відсутній на сервері.</response>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.SaveConfig">
+            <summary>
+            Збереження налаштувань терміналів, які зареєстровані на сервері.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.SaveConfigWebsocket">
+            <summary>
+            Збереження налаштувань сервера.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.PurchaseSocket(System.String)">
+            <summary>
+            Оплата.
+            </summary>
+            <param name="device_id">Ідентифікатор терміналу</param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.CancelSocket(System.String)">
+            <summary>
+            Відміна платіжної транзакції.
+            </summary>
+            <param name="device_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.Purchase(System.String,System.Object)">
+             <summary>
+             Відправка команди "Оплата" на платіжний термінал.
+             </summary>
+             <param name="device_id">Ідентифікатор терміналу</param>
+             <param name="jsonPurchaseDTO">Дані для оплати</param>
+             <returns></returns>
+             <remarks>
+             Дана команда автоматично встановлює з'єднання з терміналом перед початком відправки запиту на оплату.
+             
+             Приклад запиту:
+            
+                 POST /pos/b2a90d65-856c-47d9-aad6-71fbf1b4f6b6/purchase
+                 {
+                    "amount": 100
+                 }
+            
+             </remarks>
+             <response code="200">Повернуто успішний результат виконання команди</response>
+             <response code="400">Некоректні дані</response>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.Cancel(System.String,CommonClasses.PerformVoidDTO)">
+            <summary>
+            Відправка команди "Відміна транзакції" на платіжний термінал.
+            </summary>
+            <param name="device_id">Ідентифікатор терміналу</param>
+            <param name="value">Дані для відміни транзакції</param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.Ping(System.String)">
+            <summary>
+            Визначення доступності терміналу.
+            </summary>
+            <param name="device_id">Ідентифікатор терміналу</param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.LastResultOperation(System.String)">
+            <summary>
+            Отримання результату останньої операції, яку виконував термінал.
+            </summary>
+            <param name="device_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.GetBatchTotals(System.String,System.String)">
+            <summary>
+            Повертає X-звіт в електронному виді.
+            </summary>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.PrintBatchTotals(System.String,System.String)">
+            <summary>
+            Друк X-звіту.
+            </summary>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.PrintBatchJournal(System.String,System.String)">
+            <summary>
+            Друк звіту по операціям за день.
+            </summary>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.Settlement(System.String,System.String)">
+            <summary>
+            Закриття зміни та очищення журналу.
+            </summary>
+        </member>
+        <member name="M:POSServer.Controllers.POSController.PrintLastSettleCopy(System.String,System.String)">
+            <summary>
+            Друк копії останнього Z-звіту.
+            </summary>
+        </member>
+        <member name="T:POSServer.DllLoadUtils.DllLoadUtilsLinux">
+            <summary>
+            DllLoadUtilsLinux
+            </summary>
+        </member>
+        <member name="M:POSServer.DllLoadUtils.DllLoadUtilsLinux.LoadLibrary(System.String)">
+            <summary>
+            LoadLibrary
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:POSServer.DllLoadUtils.DllLoadUtilsLinux.FreeLibrary(System.IntPtr)">
+            <summary>
+            FreeLibrary
+            </summary>
+            <param name="handle"></param>
+        </member>
+        <member name="M:POSServer.DllLoadUtils.DllLoadUtilsLinux.GetProcAddress(System.IntPtr,System.String)">
+            <summary>
+            GetProcAddress
+            </summary>
+            <param name="dllHandle"></param>
+            <param name="name"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:POSServer.Interface.TerminalStatuses">
+            <summary>
+            Terminal statuses
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.None">
+            <summary>
+            None
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.Success">
+            <summary>
+            Success
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DeviceIdNotFound">
+            <summary>
+            Device not found
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.IOException">
+            <summary>
+            IOException
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.IOExceptionTerminal">
+            <summary>
+            IOExceptionTerminal
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.HostUnreachable">
+            <summary>
+            Host unreachable
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ValueIsNullOrEmpty">
+            <summary>
+            Value is null
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DriverNotRegistered">
+            <summary>
+            Driver not registered
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DeviceConfigNotFound">
+            <summary>
+            Device config not found
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DeviceConfigurationIsNotSaved">
+            <summary>
+            Device configuration is not saved
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.BankIsNotSupported">
+            <summary>
+            The bank is not supported
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.POSTerminalIsNotSupported">
+            <summary>
+            The bank is not supported
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.MethodIsNotSupported">
+            <summary>
+            The method is not supported
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.POSTerminalNotConnected">
+            <summary>
+            The POS terminal not connected
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.CommandExecutionError">
+            <summary>
+            Command execution description
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DeviceBusy">
+            <summary>
+            Device is busy
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DeviceManagerIsNotInitialized">
+            <summary>
+            Device manager is not initialized
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DriverNotInstalled">
+            <summary>
+            Driver not installed
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DeviceNotFound">
+            <summary>
+            Device not found
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ConnectionRefused">
+            <summary>
+            Connection refused
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.HostNotFound">
+            <summary>
+            Host not found
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NetworkUnreachable">
+            <summary>
+            Network unreachable
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.TimedOut">
+            <summary>
+            Timed out
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ErrorOpenComPort">
+            <summary>
+            Error opening COM port
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NeedOpenComPort">
+            <summary>
+            Need to open COM port
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.UnauthorizedAccess">
+            <summary>
+            Unauthorized access
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InputOutputError">
+            <summary>
+            Input/Output description
+            </summary>
+            Можливі причини її виникнення та усунення:
+            1. Неправильне підключення пристрою: Якщо пристрій підключений до комп'ютера через USB або інший з'єднувач, перевірте, чи він належним чином підключений. Перевірте кабель та порт підключення.
+            2. Помилки з живленням: Пристрій може мати проблеми з живленням. Переконайтеся, що пристрій увімкнений і має належні живлення.
+            3. Проблеми з драйверами: Іноді помилки можуть виникати через проблеми з драйверами пристрою. Переконайтеся, що встановлені оновлені драйвери для пристрою, і, можливо, спробуйте перевстановити драйвери.
+            4. Проблеми з самим пристроєм: Якщо нічого з вищезазначеного не працює, можливо, пристрій має проблеми апаратного характеру. У цьому випадку, вам може знадобитися звернутися до виробника пристрою або провести додаткове тестування на іншому комп'ютері.
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ArgumentError">
+            <summary>
+            Argument description
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ProtocolIsNotSupported">
+            <summary>
+            The protocol is not supported
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ResultCodeIsUnknown">
+            <summary>
+            The result code is unknown
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.Error">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.Break">
+            <summary>
+            Break
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.Decline">
+            <summary>
+            Decline
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.KeepAlive">
+            <summary>
+            KeepAlive
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.WrongMAC">
+            <summary>
+            Wrong MAC
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.StatusCodeIsNotAvailable">
+            <summary>
+            TerminalStatuses code is not available
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.CardWasRead">
+            <summary>
+            Card was read
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.UsedChipCard">
+            <summary>
+            Used a chip card
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.AuthorizationInProgress">
+            <summary>
+            Authorization in progress
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.WaitingForCashierAction">
+            <summary>
+            Waiting for cashier action
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.PrintingReceipt">
+            <summary>
+            Printing receipt
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.PinEntryIsNeeded">
+            <summary>
+            Pin entry is needed
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.CardWasRemoved">
+            <summary>
+            Card was removed
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.EMVMultiAids">
+            <summary>
+            EMV multi aid’s
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.WaitingForCard">
+            <summary>
+            Waiting for card
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InProgress">
+            <summary>
+            In progress
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.CorrectTransaction">
+            <summary>
+            Correct transaction
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.PinInputWaitKey">
+            <summary>
+            Pin input wait key
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.PinInputBackspacePressed">
+            <summary>
+            Pin input backspace pressed
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.PinInputKeyPressed">
+            <summary>
+            Pin input key pressed
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.StandbyMode">
+            <summary>
+            The terminal is in standby mode
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.CommunicationWithBank">
+            <summary>
+            Communication with the bank
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.RequiresOutCardFromCardSlot">
+            <summary>
+            The terminal requires you to pull out the card from the card slot
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.TransactionCanceledByUser">
+            <summary>
+            Transaction canceled by user
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.EMVDecline">
+            <summary>
+            EMV Decline
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.TransactionLogIsFull">
+            <summary>
+            Transaction log is full. Need close batch
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NoConnectionWithHost">
+            <summary>
+            No connection with host
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NoPaperInPrinter">
+            <summary>
+            No paper in printer
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ErrorCryptoKeys">
+            <summary>
+            Error Crypto keys
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.CardReaderIsNotConnected">
+            <summary>
+            Card reader is not connected
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.TransactionIsAlreadyComplete">
+            <summary>
+            Transaction is already complete
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ChecksumError">
+            <summary>
+            Checksum description
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.JsonFormatError">
+            <summary>
+            Json message format description
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.RequiredFieldsAreMissing">
+            <summary>
+            Required fields are missing
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InvalidMerchant">
+            <summary>
+            Merchant Id is not found
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InterruptProhibited">
+            <summary>
+            Interrupt prohibited
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.VerificationErrorPIN">
+            <summary>
+            Verification description (pin, signature)
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.KeyError">
+            <summary>
+            Key description
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NeedZReport">
+            <summary>
+            Need Z report
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.CardError">
+            <summary>
+            Card description
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ContactIssuingBank">
+            <summary>
+            Contact the issuing bank
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NeedsTelephoneAuthorisation">
+            <summary>
+            Needs telephone authorisation
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.FormatError">
+            <summary>
+            Format error
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.RetainCard">
+            <summary>
+            Retain card
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.AuthorisationDeclined">
+            <summary>
+            Authorisation declined
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ServiceWithIdentification">
+            <summary>
+            Service with identification
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InvalidTransaction">
+            <summary>
+            Invalid transaction
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.EnteredIncorrectlyAmount">
+            <summary>
+            The amount was entered incorrectly
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InvalidCard">
+            <summary>
+            Invalid Card
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NoSuchIssuer">
+            <summary>
+            There is no such issuer
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.RefusalOfClient">
+            <summary>
+            Refusal of the client
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.VerificationFault">
+            <summary>
+            Verification fault
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NoAction">
+            <summary>
+            No action (data does not match)
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.IncorrectFormat">
+            <summary>
+            Incorrect format
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.PartiallyCompleted">
+            <summary>
+            Partially completed
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.CardExpired">
+            <summary>
+            Card expired
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.CallIssuingBank">
+            <summary>
+            Call the issuing bank
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NoMoreAttemptsEnterPINCode">
+            <summary>
+            There are no more attempts to enter the PIN code
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.LostCard">
+            <summary>
+            Remove payment method (lost)
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.StolenCard">
+            <summary>
+            Stolen Card, pick up
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InsufficientFundsOnAccount">
+            <summary>
+            There are insufficient funds on the account
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NonVerifyingAccount">
+            <summary>
+            Non-verifying account
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.IncorrectPINCode">
+            <summary>
+            Incorrect PIN code
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.TransactionMeansOfPaymentIsNotAllowed">
+            <summary>
+            Transaction by means of payment is not allowed
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.WithdrawalLimitHasBeenExceeded">
+            <summary>
+            The withdrawal limit has been exceeded
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ProhibitedMeansOfPayment">
+            <summary>
+            Prohibited means of payment
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.AccountTransactionLimitHasBeenExceeded">
+            <summary>
+            The account transaction limit has been exceeded
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ContactAcquiringBank">
+            <summary>
+            Contact the acquiring bank
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.MeansOfPaymentWasWithdrawnFromATM">
+            <summary>
+            The means of payment was withdrawn from the ATM
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.AnswerReceivedTooLate">
+            <summary>
+            Answer received too late
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.PreviousMessageNotFound">
+            <summary>
+            Previous message not found
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DataDoesNotMatchOriginal">
+            <summary>
+            The data does not match the original
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ErrorInPINCodeCipher">
+            <summary>
+            Error in PIN code cipher
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InvalidCVV">
+            <summary>
+            Invalid CVV
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NoReasonToRefuse">
+            <summary>
+            No reason to refuse
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.NoConnectionWithIssuingBank">
+            <summary>
+            There is no connection with the issuing bank
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.RequestFailed">
+            <summary>
+            Request failed
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.TransmissionDuplication">
+            <summary>
+            Transmission duplication
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.SystemError">
+            <summary>
+            System description
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DataPacketError">
+            <summary>
+            Data packet error
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ContactCardIssuer">
+            <summary>
+            Contact card issuer
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.SelectAccount">
+            <summary>
+            Select account
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ExternalDecline">
+            <summary>
+            External decline
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ExternalDeclineSpecial">
+            <summary>
+            External decline special
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.PartialApproval">
+            <summary>
+            Partial approval
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.MerchantLimitExceeded">
+            <summary>
+            Merchant limit exceeded
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InvalidTrack2">
+            <summary>
+            Invalid track 2
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ClosedAccount">
+            <summary>
+            Closed account
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.BlockedFirstUsedTemporarilyBlocked">
+            <summary>
+            Blocked, first used or temporarily blocked
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.SelectBill">
+            <summary>
+            Select bill
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.PinRequired">
+            <summary>
+            PIN required
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.AdditionalAuthenticationRequired">
+            <summary>
+            Additional customer authentication required / acquirer is required to request SCA
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.WeakPin">
+            <summary>
+            Weak PIN
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InvalidPinReentersAllowed">
+            <summary>
+            Invalid PIN, re-enters allowed
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.IneligibleTransactionAccount">
+            <summary>
+            Ineligible transaction/account
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.TransactionNotSupported">
+            <summary>
+            Transaction not supported
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InvalidProcessingCode">
+            <summary>
+            Invalid processing code
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.UsesLimitExceeded">
+            <summary>
+            Uses limit exceeded
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.OriginalRequestNotFound">
+            <summary>
+            Original request not found
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.BadCVV2">
+            <summary>
+            Bad CVV2
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.WrongCustomerInformationFormat">
+            <summary>
+            Wrong format of customer information field
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.PrepaidCodeNotFound">
+            <summary>
+            Prepaid Code not found
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.CustomerConfirmationRequested">
+            <summary>
+            Customer confirmation requested
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InvalidTerminalId">
+            <summary>
+            Invalid terminal id
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DestinationNotAvailable">
+            <summary>
+            Destination not available
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.RoutingError">
+            <summary>
+            Routing Error
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ReconcileError">
+            <summary>
+            Reconcile error, should start Batch Upload
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ApprovedOfflineByCard">
+            <summary>
+            Approved by card offline
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ApprovedOfflineByCardVoiceReferral">
+            <summary>
+            Approved by card offline by VOICE REFERRAL
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ApprovedOfflineNoConnection">
+            <summary>
+            Approved by card offline (no connection with processing)
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ErrorBeforeFirstCryptogramGeneration">
+            <summary>
+            An error before the generation of the first cryptogram
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ErrorDuringFirstCryptogramGeneration">
+            <summary>
+            Error during generation of the first cryptogram at VOICE REFERRAL
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ServiceErrorNoConnection">
+            <summary>
+            Service error (no connection with processing)
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ErrorCannotGetCycleNumber">
+            <summary>
+            Error - unable to get cycle number
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DeclinedOfflineFirstCryptogram">
+            <summary>
+            Card declined first cryptogram offline
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DeclinedDuringVoiceReferral">
+            <summary>
+            Card declined during VOICE REFERRAL
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DeclinedOfflineSecondCryptogram">
+            <summary>
+            Card refused offline second cryptogram
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.DoNotHonour">
+            <summary>
+            Do not honour | не сплаченко("зазвичай проблема повязана з обмеженнями картки покупця")
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.HonourWithIdentification">
+            <summary>
+            Honour with identification | провести ідентифікацію
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ApprovedPartialAmount">
+            <summary>
+            Approved for partial amount | погоджено для часткової суми
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ApprovedVIP">
+            <summary>
+            Approved (VIP) | погоджено (VIP)
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.InvalidCardNumber">
+            <summary>
+            Invalid card number (no such number) | невірний номер карти
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.ApprovedUpdateTrack3">
+            <summary>
+            Approved, update track 3 | погоджено, оновіть track 3
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.TerminalStatuses.Exception">
+            <summary>
+            Exception description
+            </summary>
+        </member>
+        <member name="T:POSServer.Interface.TerminalStatusesExtensions">
+            <summary>
+            POS codes status/errors
+            </summary>
+        </member>
+        <member name="M:POSServer.Interface.TerminalStatusesExtensions.Code(POSServer.Interface.TerminalStatuses)">
+            <summary>
+            TerminalStatuses
+            </summary>
+            <summary>
+            Get code status
+            </summary>
+            <param name="_status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Interface.TerminalStatusesExtensions.Description(POSServer.Interface.TerminalStatuses,System.String)">
+            <summary>
+            Get error status
+            </summary>
+            <param name="_status"></param>
+            <param name="_lang"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.Interface.TerminalStatusesExtensions.DescriptionAdditional(POSServer.Interface.TerminalStatuses,System.String)">
+            <summary>
+            Get error description resolve
+            </summary>
+            <param name="status"></param>
+            <param name="lang"></param>
+            <returns></returns>
+        </member>
+        <member name="T:POSServer.Interface.POSEntryMode">
+            <summary>
+            Тип проведення платежу
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.Undefined">
+            <summary>
+            Не визначено
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.MagneticStripe">
+            <summary>
+            Магнітна смужка картки
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.EMVChip">
+            <summary>
+            EMV-чіп картки
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.ContactlessChip">
+            <summary>
+            Безконтактна оплата
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.ContactlessStripe">
+            <summary>
+            Безконтактна оплата з використанням магнітної смужки
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.Fallback">
+            <summary>
+            Використано магнітну смужку після помилки зчитування EMV-чіпа
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.Manual">
+            <summary>
+            Ручне введення номеру картки
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.MagneticStripePIN">
+            <summary>
+            Магнітна смужка картки з введенням PIN-коду
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.ICC_CardPin">
+            <summary>
+            ICC карта з введенням PIN-коду
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.ICC_Card">
+            <summary>
+            ICC карта
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.Fallback_ICC_CardPin">
+            <summary>
+            Використано магнітну смужку після помилки зчитування (ICC карта з введенням PIN-коду)
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.Fallback_ICC_Card">
+            <summary>
+            Використано магнітну смужку після помилки зчитування (ICC карта)
+            </summary>
+        </member>
+        <member name="F:POSServer.Interface.POSEntryMode.Fallback_EMVChip">
+            <summary>
+            EMV-чіп картки після помилки зчитування
+            </summary>
+        </member>
+        <member name="M:POSServer.Interface.IPOSInterface.GetBatchTotals(System.String)">
+            <summary>
+            Повертає X-звіт в електронному виді
+            </summary>
+        </member>
+        <member name="M:POSServer.Interface.IPOSInterface.PrintBatchTotals(System.String)">
+            <summary>
+            Друк X-звіту
+            </summary>
+        </member>
+        <member name="M:POSServer.Interface.IPOSInterface.PrintBatchJournal(System.String)">
+            <summary>
+            Друк звіту по операціям за день
+            </summary>
+        </member>
+        <member name="M:POSServer.Interface.IPOSInterface.Settlement(System.String)">
+            <summary>
+            Закриття зміни та очищення журналу
+            </summary>
+        </member>
+        <member name="M:POSServer.Interface.IPOSInterface.PrintLastSettleCopy(System.String)">
+            <summary>
+            Друк копії останнього Z-звіту
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Asap.connected">
+            <summary>
+            connected
+            </summary>
+        </member>
+        <member name="T:POSServer.POSTerminals.AsaPECr.TerminalConfig">
+            <summary>
+            Terminal config data
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.TerminalConfig.Terminal">
+            <summary>
+            Terminal
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.TerminalConfig.Certs">
+            <summary>
+            Certs
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.TerminalConfig.Log">
+            <summary>
+            Log
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.TerminalConfig.Asap">
+            <summary>
+            Asap
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.AsaPECr.TerminalConfig.#ctor">
+            <summary>
+            Terminal config data
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.AsaPECr.TerminalConfig.SaveToFile(System.String)">
+            <summary>
+            Save configuration to file
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:POSServer.POSTerminals.AsaPECr.TerminalConfig.LoadFromFile(System.String)">
+            <summary>
+            Read configuration from file
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:POSServer.POSTerminals.AsaPECr.Terminal">
+            <summary>
+            Terminal data
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Terminal.Type">
+            <summary>
+            Type connection
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Terminal.Url">
+            <summary>
+            Url
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Terminal.TimeoutConn">
+            <summary>
+            TimeOut connection
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Terminal.TimeoutResp">
+            <summary>
+            TimeOut response
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Terminal.MaxCnt">
+            <summary>
+            Maximum connection
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Terminal.Baudrate">
+            <summary>
+            Baudrate
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Terminal.Scheme">
+            <summary>
+            Scheme
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Terminal.TimeoutExchange">
+            <summary>
+            Timeout exchange
+            </summary>
+        </member>
+        <member name="T:POSServer.POSTerminals.AsaPECr.Certs">
+            <summary>
+            Certificate data
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Certs.FileNamePfx">
+            <summary>
+            FileNamePfx
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Certs.FileNameCerts">
+            <summary>
+            FileNameCerts
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.Certs.FileNameAriaPfx">
+            <summary>
+            FileNameAriaPfx
+            </summary>
+        </member>
+        <member name="T:POSServer.POSTerminals.AsaPECr.LogConfig">
+            <summary>
+            Logger
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.LogConfig.LogLevel">
+            <summary>
+            LogLevel
+            </summary>
+        </member>
+        <member name="T:POSServer.POSTerminals.AsaPECr.AsapConfig">
+            <summary>
+            AsapConfig
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.AsaPECr.AsapConfig.VersionAsapClient">
+            <summary>
+            VersionAsapClient
+            </summary>
+        </member>
+        <member name="T:POSServer.POSTerminals.AsaPECr.TransactionConfig">
+            <summary>
+            Transaction config
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.AsaPECr.TransactionConfig.SaveToFile(System.String)">
+            <summary>
+            Save transaction data to file
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:POSServer.POSTerminals.AsaPECr.TransactionConfig.LoadFromFile(System.String)">
+            <summary>
+            Load transaction data from file
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:POSServer.POSTerminals.IngenicoBPOS">
+            <summary>
+            Implementation of Ingenico Desk/3200 terminal POS commands
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.IngenicoBPOS.lastValidationError">
+            <summary>
+            lastValidationError
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.IngenicoBPOS.connected">
+            <summary>
+            connected
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.IngenicoBPOS.breakCurrentCommand">
+            <summary>
+            Break current command
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.IngenicoBPOS.#ctor(System.String)">
+            <summary>
+            Ingenico_Desk3200
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.IngenicoBPOS.#ctor(CommonClasses.DeviceDTO,System.String)">
+            <summary>
+            IngenicoBPOS
+            </summary>
+            <param name="deviceConfig"></param>
+            <param name="pathToLogs"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:POSServer.POSTerminals.IngenicoBPOS.Finalize">
+            <summary>
+            ~Ingenico_Desk3200
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.IngenicoBPOS.HookLastStatMsgCode(System.UInt32,System.UInt32)">
+            <summary>
+            HookLastStatMsgCode
+            </summary>
+            <param name="LastStatMsgCode"></param>
+            <param name="waitSec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.POSTerminals.IngenicoBPOS.GetBatchTotals(System.String)">
+            <summary>
+            Повертає X-звіт в електронному виді
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.IngenicoBPOS.PrintBatchTotals(System.String)">
+            <summary>
+            Друк X-звіту
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.IngenicoBPOS.PrintBatchJournal(System.String)">
+            <summary>
+            Друк звіту по операціям за день
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.IngenicoBPOS.Settlement(System.String)">
+            <summary>
+            Закриття зміни та очищення журналу
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.IngenicoBPOS.PrintLastSettleCopy(System.String)">
+            <summary>
+            Друк копії останнього Z-звіту
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.KKM.KKM20.GetTerminalInfo">
+            <summary>
+            GetTerminalInfo()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.Info">
+            <summary>
+            «?» – запрос у кассы различной информации (сценария проведения операции)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.CashWithdrawal">
+            <summary>
+            «H» – выдача наличных
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.Balance">
+            <summary>
+            «B» – запрос баланса
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.CardCheck">
+            <summary>
+            «V» – проверка карты
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.Ping">
+            <summary>
+            «v» – проверка связи
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.AccountReplenish">
+            <summary>
+            «D» – пополнение счета
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.ChangePin">
+            <summary>
+            «p» – смена PIN кода
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.SetPin">
+            <summary>
+            «s» – установка PIN кода
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.Payment">
+            <summary>
+            «S» – оплата товара
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.DayCancel">
+            <summary>
+            «C» – отмена операции в течении рабочего дня
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.PostDayCancel">
+            <summary>
+            «с» – отмена операции после закрытия дня на терминале
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.Refund">
+            <summary>
+            «R» – возвращение средств (возврат товара)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.DayCorrection">
+            <summary>
+            «A» – коррекция операциив течении рабочего дня
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.PreAuthorization">
+            <summary>
+            «P» - предавторизация
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.PreAuthCompleteDay">
+            <summary>
+            «F» – завершение предавторизации в течении дня (либо по журналу предавторизаций терминала)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.PreAuthCompletePostDay">
+            <summary>
+            «f» – завершение предавторизации за пределами рабочего дня (без поиска оригинальной операции в журналах операций)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.DayClose">
+            <summary>
+            «L» – закрытие дня (сверка итогов)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.ReceiptCopy">
+            <summary>
+            «Q» – копия чека
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.ReportCopy">
+            <summary>
+            «q» – копия отчета
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.LoadKeys">
+            <summary>
+            «K» – загрузка ключей
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.LoadParams">
+            <summary>
+            «N» – загрузка параметров и ПО
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.ServiceOperation">
+            <summary>
+            «E» – операция сервисов (Приватбанк)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.ShortReport">
+            <summary>
+            «X» - печать краткого отчета (выбор сортировок выполняется на терминале)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.LastOperationCancel">
+            <summary>
+            «r» - отмена последней операции
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.GetTerminalID">
+            <summary>
+            «Т» - получить от терминала TerminalID
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.LogIn">
+            <summary>
+            «I» - LogIn в кассовой системе (В2)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.LogOut">
+            <summary>
+            «O» - LogOut в кассовой системе (В2)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.ClientIdentify">
+            <summary>
+            «i» - идентификация клиента в кассовой системе (В2)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.IDCardRead">
+            <summary>
+            «U» - чтение данных ID-карты
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.TransferToEcomCard">
+            <summary>
+            «G» - перевод средств на карту клиента eCom
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.NonBankCardPinCheck">
+            <summary>
+            «g» - проверка/формирование PIN по небанковским картам
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.OperationType.PrintData">
+            <summary>
+            «J» - печать данных на встроенном принтере терминала
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.SessionNo">
+            <summary>
+            00              | SessionNo             | 6 (numeric)       | Номер сессии обмена с кассовой системой
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.PAN">
+            <summary>
+            01              | PAN                   | 20 (numeric)      | Значение номера карты
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.CardHolder">
+            <summary>
+            02              | CardHolder            | 30 (alphanumeric) | Фамилия + Имя владельца карты
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.OPER">
+            <summary>
+            03              | OPER                  | 1 (alphanumeric)  | Код операции (enum OperationType)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.CARD_NAME">
+            <summary>
+            04              | CARD_NAME             | 30(alphanumeric)  | Название карты, какое заведено в системе управления POS Master.
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.AMOUNT">
+            <summary>
+            05              | AMOUNT                | 12 (numeric)      | Сумма, передаваемая из кассы терминалу в копейках.
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.RCODE">
+            <summary>
+            06              | RCODE                 | 3 (alphanumeric)  | Код ответа от хоста
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.ACODE">
+            <summary>
+            07              | ACODE                 | 9(numeric)        | Код авторизации от хоста
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.FLAG">
+            <summary>
+            10              | FLAG                  | 1 (numeric)       | Принадлежность карты к банку эквайеру
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.FlagAdd">
+            <summary>
+            11              | FlagAdd               | 15(alphanumeric)  | Признак карты, который заведено в системе управления POS Master.
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.NEW_AMOUNT">
+            <summary>
+            15              | NEW_AMOUNT            | 12 (numeric)      | Итоговая сумма операции (при проведении операции завершения предавторизации)
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.CHEQUE_NO">
+            <summary>
+            17              | CHEQUE_NO             | 6 (numeric)       | Номер чека операции
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.SessionNo_Orig">
+            <summary>
+            18              | SessionNo_Orig        | 6 (numeric)       | Номер сессии оригинальной операции для выполнения настойчивой отмены
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.RRN">
+            <summary>
+            43              | RRN                   | 12(alphanumeric)  | Уникальный номер транзакции в ПЦ
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.ACCNO">
+            <summary>
+            44              | ACCNO                 | 2(alphanumeric)   | Идентификатор счета карты
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.KKM_TermName">
+            <summary>
+            49              | KKM_TermName          | 8(alphanumeric)   | Идентификатор терминала для ККМ, установленный в дополнительных параметрах физического терминала
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.Merch_Id">
+            <summary>
+            51              | Merch_Id              | 15(alphanumeric)  | Идентификатор торговца, по которому проведена операция
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.Currency">
+            <summary>
+            Значение кода валюты операции
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.Currency_Name">
+            <summary>
+            Имя валюты в параметрах терминала
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.Sursh_Amt">
+            <summary>
+            Размер эквайринговой комиссии в сотых долях денежной единицы
+            </summary>
+        </member>
+        <member name="F:POSServer.POSTerminals.KKM.TAG.CountDown_AMT">
+            <summary>
+            Размер скидки при торговых операциях
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.POSInterfaceBase.GetBatchTotals(System.String)">
+            <summary>
+            Повертає X-звіт в електронному виді
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.POSInterfaceBase.PrintBatchTotals(System.String)">
+            <summary>
+            Друк X-звіту
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.POSInterfaceBase.PrintBatchJournal(System.String)">
+            <summary>
+            Друк звіту по операціям за день
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.POSInterfaceBase.Settlement(System.String)">
+            <summary>
+            Закриття зміни та очищення журналу
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.POSInterfaceBase.PrintLastSettleCopy(System.String)">
+            <summary>
+            Друк копії останнього Z-звіту
+            </summary>
+        </member>
+        <member name="T:POSServer.POSTerminals.PrivatJSON">
+            <summary>
+            Implementation of PAX A930 terminal POS commands
+            </summary>
+        </member>
+        <member name="P:POSServer.POSTerminals.PrivatJSON.breakCurrentCommand">
+            <summary>
+            Break current command
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.PrivatJSON.GetBatchTotals(System.String)">
+            <summary>
+            Повертає X-звіт в електронному виді
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.PrivatJSON.PrintBatchTotals(System.String)">
+            <summary>
+            Друк X-звіту
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.PrivatJSON.PrintBatchJournal(System.String)">
+            <summary>
+            Друк звіту по операціям за день
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.PrivatJSON.Settlement(System.String)">
+            <summary>
+            Закриття зміни та очищення журналу.
+            Призначена для ініціювання та відправки загальних сум на хост для звірки з даними, які зберігаються на хості.
+            Термінал може виконати звірку підсумків почергово по всім мерчантам, або по кожному окремо – в залежності від значення поля Merchant ID.
+            "0" або пустий рядок вказує на режим формування по всім мерчантам.
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.PrivatJSON.PrintLastSettleCopy(System.String)">
+            <summary>
+            Друк копії останнього Z-звіту (Звірка).
+            Крім передачі чека на касу, також виконується друк чека терміналом.
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.SSI.ECR.CommandBlock.GetResponse(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="FinTrx">is call finance operation</param>
+            <param name="PPD_trx">is PosPrePaid success called</param>
+            <param name="MultiCurrency">is MultiCurrencySettle called</param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.POSTerminals.SSI.ECR.ECR98.GetTerminalInfo">
+            <summary>
+            GetTerminalInfo()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.POSTerminals.SSI.JSON.GetTerminalInfo">
+            <summary>
+            GetTerminalInfo()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.POSTerminals.SSI.JSON.GetBatchTotals(System.String)">
+            <summary>
+            Повертає X-звіт в електронному виді
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.SSI.JSON.PrintBatchTotals(System.String)">
+            <summary>
+            Друк X-звіту
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.SSI.JSON.Settlement(System.String)">
+            <summary>
+            Закриття зміни та очищення журналу.
+            Призначена для ініціювання та відправки загальних сум на хост для звірки з даними, які зберігаються на хості.
+            Термінал може виконати звірку підсумків почергово по всім мерчантам, або по кожному окремо – в залежності від значення поля Merchant ID.
+            "0" або пустий рядок вказує на режим формування по всім мерчантам.
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.SSI.JSON.PrintLastSettleCopy(System.String)">
+            <summary>
+            Друк копії останнього Z-звіту (Звірка).
+            Крім передачі чека на касу, також виконується друк чека терміналом.
+            </summary>
+        </member>
+        <member name="T:POSServer.POSTerminals.Transport.RS232Transport">
+            <summary>
+            RS232Transport
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.Transport.RS232Transport.Dispose">
+            <summary>
+            Dispose()
+            </summary>
+            <exception cref="T:POSServer.ServiceCommandsExceptions"></exception>
+        </member>
+        <member name="M:POSServer.POSTerminals.CommandBlock.getResponse(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="timeOut">Response timeout, in milliseconds</param>
+            <returns></returns>
+        </member>
+        <member name="P:POSServer.POSTerminals.VerifonePrintec.breakCurrentCommand">
+            <summary>
+            Break current command
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.VerifonePrintec.GetBatchTotals(System.String)">
+            <summary>
+            Повертає X-звіт в електронному виді
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.VerifonePrintec.PrintBatchTotals(System.String)">
+            <summary>
+            Друк X-звіту
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.VerifonePrintec.PrintBatchJournal(System.String)">
+            <summary>
+            Друк звіту по операціям за день
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.VerifonePrintec.Settlement(System.String)">
+            <summary>
+            Закриття зміни та очищення журналу
+            </summary>
+        </member>
+        <member name="M:POSServer.POSTerminals.VerifonePrintec.PrintLastSettleCopy(System.String)">
+            <summary>
+            Друк копії останнього Z-звіту
+            </summary>
+        </member>
+        <member name="T:POSServer.Program">
+            <summary>
+            Programm
+            </summary>
+        </member>
+        <member name="M:POSServer.Program.#ctor">
+            <summary>
+            Programm
+            </summary>
+        </member>
+        <member name="M:POSServer.Program.#ctor(System.String[])">
+            <summary>
+            Programm
+            </summary>
+            <param name="cmdParams"></param>
+        </member>
+        <member name="M:POSServer.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:POSServer.ServiceCommand.GetBatchTotals(System.String,System.String)">
+            <summary>
+            Повертає X-звіт в електронному виді
+            </summary>
+        </member>
+        <member name="M:POSServer.ServiceCommand.PrintBatchTotals(System.String,System.String)">
+            <summary>
+            Друк X-звіту
+            </summary>
+        </member>
+        <member name="M:POSServer.ServiceCommand.PrintBatchJournal(System.String,System.String)">
+            <summary>
+            Друк звіту по операціям за день
+            </summary>
+        </member>
+        <member name="M:POSServer.ServiceCommand.Settlement(System.String,System.String)">
+            <summary>
+            Закриття зміни та очищення журналу
+            </summary>
+        </member>
+        <member name="M:POSServer.ServiceCommand.PrintLastSettleCopy(System.String,System.String)">
+            <summary>
+            Друк копії останнього Z-звіту
+            </summary>
+        </member>
+        <member name="M:POSServer.ServiceCommand.BreakCurrentCommand(System.String)">
+            <summary>
+            Переривання виконання поточної операції на терміналі
+            </summary>
+            <param name="device_id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:POSServer.Swagger.SwaggerDynamicTypeAttribute">
+            <summary>
+            SwaggerDynamicTypeAttribute
+            </summary>
+        </member>
+        <member name="P:POSServer.Swagger.SwaggerDynamicTypeAttribute.DataType">
+            <summary>
+            Data type
+            </summary>
+        </member>
+        <member name="M:POSServer.Swagger.SwaggerDynamicTypeAttribute.#ctor(System.Type[])">
+            <summary>
+            SwaggerDynamicTypeAttribute
+            </summary>
+            <param name="dataType"></param>
+        </member>
+        <member name="T:POSServer.Swagger.SwaggerRequestBodyWithModelAttribute">
+            <summary>
+            SwaggerRequestBodyWithModelAttribute
+            </summary>
+        </member>
+        <member name="P:POSServer.Swagger.SwaggerRequestBodyWithModelAttribute.ModelType">
+            <summary>
+            Model type
+            </summary>
+        </member>
+        <member name="M:POSServer.Swagger.SwaggerRequestBodyWithModelAttribute.#ctor(System.Type)">
+            <summary>
+            SwaggerRequestBodyWithModelAttribute
+            </summary>
+            <param name="modelType"></param>
+        </member>
+        <member name="T:POSServer.Swagger.RemoveSchemaFilter">
+            <summary>
+            RemoveSchemaFilter
+            </summary>
+        </member>
+        <member name="M:POSServer.Swagger.RemoveSchemaFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            Apply
+            </summary>
+            <param name="swaggerDoc"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:POSServer.Swagger.EnumFilter">
+            <summary>
+            Enum schema filter
+            </summary>
+        </member>
+        <member name="M:POSServer.Swagger.EnumFilter.Apply(Microsoft.OpenApi.Models.OpenApiSchema,Swashbuckle.AspNetCore.SwaggerGen.SchemaFilterContext)">
+            <summary>
+            Apply
+            </summary>
+            <param name="model"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:POSServer.Swagger.ExampleConnectProperties">
+            <summary>
+            Example connect properties
+            </summary>
+        </member>
+        <member name="M:POSServer.Swagger.ExampleConnectProperties.GetExamples">
+            <summary>
+            GetExamples()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:POSServer.Swagger.ExampleDeviceDTO">
+            <summary>
+            Example DeviceDTO
+            </summary>
+        </member>
+        <member name="M:POSServer.Swagger.ExampleDeviceDTO.GetExamples">
+            <summary>
+            GetExamples()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:POSServer.Swagger.ExamplePerformPurchaseDTO">
+            <summary>
+            Example PerformPurchaseDTO
+            </summary>
+        </member>
+        <member name="M:POSServer.Swagger.ExamplePerformPurchaseDTO.GetExamples">
+            <summary>
+            GetExamples()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:POSServer.Swagger.SwaggerRequestBodyWithModelAttributeFilter">
+            <summary>
+            SwaggerRequestBodyWithModelAttributeFilter
+            </summary>
+        </member>
+        <member name="M:POSServer.Swagger.SwaggerRequestBodyWithModelAttributeFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Apply
+            </summary>
+            <param name="operation"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:POSServer.Swagger.JsonConnectParamsSchemaFilter">
+            <summary>
+            JsonConnectParamsSchemaFilter
+            </summary>
+        </member>
+        <member name="M:POSServer.Swagger.JsonConnectParamsSchemaFilter.Apply(Microsoft.OpenApi.Models.OpenApiSchema,Swashbuckle.AspNetCore.SwaggerGen.SchemaFilterContext)">
+            <summary>
+            Apply
+            </summary>
+            <param name="schema"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:POSServer.WebSocketService.WebSocketManagerMiddleware">
+            <summary>
+            WebSocketManagerMiddleware
+            </summary>
+        </member>
+        <member name="M:POSServer.WebSocketService.WebSocketManagerMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,POSServer.WebSocketService.WebSocketConnection)">
+            <summary>
+            WebSocketManagerMiddleware
+            </summary>
+            <param name="next"></param>
+            <param name="connection"></param>
+        </member>
+        <member name="M:POSServer.WebSocketService.WebSocketManagerMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            InvokeAsync
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POSServer.WebSocketService.WebSocketManagerMiddleware.Receive(System.Net.WebSockets.WebSocket,System.Action{System.Net.WebSockets.WebSocketReceiveResult,System.Byte[]})">
+            <summary>
+            Receive
+            </summary>
+            <param name="socket"></param>
+            <param name="handler"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BuildTimeAttribute">
+            <summary>
+            Час збірки
+            </summary>
+        </member>
+        <member name="P:BuildTimeAttribute.BuildDateTime">
+            <summary>
+            Час збірки
+            </summary>
+        </member>
+        <member name="T:BuildVersionAttribute">
+            <summary>
+            Версія збірки
+            </summary>
+        </member>
+        <member name="P:BuildVersionAttribute.BuildVersion">
+            <summary>
+            Версія збірки
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ClassesExtension.ArrayExtensions">
+            <summary>
+            ArrayExtensions
+            </summary>
+        </member>
+        <member name="M:CommonClasses.ClassesExtension.ArrayExtensions.GetValueOrDefault``1(``0[],System.Int32,``0)">
+            <summary>
+            GetValueOrDefault
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="arr"></param>
+            <param name="index"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ClassesExtension.ArrayExtensions.GetValueOrDefault``1(``0[],System.Int32)">
+            <summary>
+            GetValueOrDefault
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="arr"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ClassesExtension.DirectoryExtensions.DirectoryCompare(System.IO.DirectoryInfo,CommonClasses.ClassesExtension.FileData[],CommonClasses.ClassesExtension.FileData[]@)">
+            <summary>
+            Порівнює каталоги і повертає масив файлів, які відсутні в поточній директорії
+            </summary>
+            <param name="directoryInfo">Поточна директорія</param>
+            <param name="filesToCompare">Масив файлів для порівняння</param>
+            <param name="fileData">Містить масив файлів, які відсутні або не співпадають з файлами поточної директорії</param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.ClassesExtension.FileData">
+            <summary>
+            FileData
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ClassesExtension.FileData.file">
+            <summary>
+            file
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ClassesExtension.FileData.md5">
+            <summary>
+            md5
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ClassesExtension.FileDataComparer">
+            <summary>
+            FileDataComparer
+            </summary>
+        </member>
+        <member name="M:CommonClasses.ClassesExtension.FileDataComparer.Equals(CommonClasses.ClassesExtension.FileData,CommonClasses.ClassesExtension.FileData)">
+            <summary>
+            Equals
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ClassesExtension.FileDataComparer.GetHashCode(CommonClasses.ClassesExtension.FileData)">
+            <summary>
+            GetHashCode
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.ClassesExtension.FileExtensions">
+            <summary>
+            FileExtensions
+            </summary>
+        </member>
+        <member name="M:CommonClasses.ClassesExtension.FileExtensions.GetMD5HashFromFile(System.String)">
+            <summary>
+            GetMD5HashFromFile
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ClassesExtension.FileExtensions.GetMD5HashFromFile(System.IO.FileInfo[])">
+            <summary>
+            GetMD5HashFromFile
+            </summary>
+            <param name="files"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ClassesExtension.ValidationStringExtensions.VerificationEnum``1(System.String,System.String)">
+            <summary>
+            VerificationEnum
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="value"></param>
+            <param name="lang"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.Consts.Const`2">
+            <summary>
+            Const
+            </summary>
+            <typeparam name="TypeConst"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="P:CommonClasses.Consts.Const`2.Item(`0)">
+            <summary>
+            Get value of const
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Consts.Const`2.Add(`0,`1)">
+            <summary>
+            Add value of const
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CommonClasses.Consts.Const`2.GetValue(`0)">
+            <summary>
+            Get value of const
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException"></exception>
+        </member>
+        <member name="M:CommonClasses.Consts.Const`2.GetEnumerator">
+            <summary>
+            GetEnumerator()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.Consts.TypeConst">
+            <summary>
+            Type of consts
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.typeOS">
+            <summary>
+            Type of OS
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.appName">
+            <summary>
+            Application name
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.appVersion">
+            <summary>
+            Application version
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.appBuild">
+            <summary>
+            Application build
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.pathApp">
+            <summary>
+            Application path
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.pathConfig">
+            <summary>
+            Path to config file
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.pathLogs">
+            <summary>
+            Path to logs
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.pathLangs">
+            <summary>
+            Path to language data
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.pathBackup">
+            <summary>
+            Path to backup
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.pathUpdate">
+            <summary>
+            Path to update
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.pathDB">
+            <summary>
+            Path to DB files
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.pathReports">
+            <summary>
+            Path to reports data
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.architecture">
+            <summary>
+            Architecture
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.appLang">
+            <summary>
+            Application language
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Consts.TypeConst.levelStartUp">
+            <summary>
+            Level StartUp application
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ControlStartUp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ControlStartUp.LevelStartUp">
+            <summary>
+            Level start-up
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ControlStartUp.LevelStartUp.OS">
+            <summary>
+            OS
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ControlStartUp.LevelStartUp.User">
+            <summary>
+            Current user
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ControlStartUp.LevelStartUp.None">
+            <summary>
+            Node
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ControlStartUp.LevelStartUpLnk">
+            <summary>
+            Level start-up from lnk file
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ControlStartUp.LevelStartUpLnk.OS">
+            <summary>
+            OS
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ControlStartUp.LevelStartUpLnk.User">
+            <summary>
+            Current user
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ControlStartUp.LevelStartUpLnk.None">
+            <summary>
+            None
+            </summary>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.IsAdministratorRun">
+            <summary>
+            Is administrator privileges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.RunAsAdministrator">
+            <summary>
+            Start with administrator privileges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.getLevelStartUpSystem(System.String,System.Boolean@)">
+            <summary>
+            Get level start-up application in the system
+            </summary>
+            <param name="App">Application key</param>
+            <param name="IsRunFromFolder">Check run from system folders</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.IsNeedUpdateRegistry(System.String,System.String)">
+            <summary>
+            Check registry system on application key
+            </summary>
+            <param name="App"></param>
+            <param name="verifyParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.GetLevelStartUpLnk(System.String)">
+            <summary>
+            Get level start-up from lnk file
+            </summary>
+            <param name="PathExecute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.AddParameters(System.String,System.String,System.Boolean)">
+            <summary>
+            Add parameters to key value
+            </summary>
+            <param name="App"></param>
+            <param name="Params"></param>
+            <param name="AllUsers"></param>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.isEnableStartup(System.String,System.Boolean)">
+            <summary>
+            Verify auto run registry key
+            </summary>
+            <param name="App"></param>
+            <param name="AllUsers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.EnableStartup(System.String,System.String,System.Boolean)">
+            <summary>
+            Enable start-up
+            </summary>
+            <param name="App"></param>
+            <param name="PathExecuteApp"></param>
+            <param name="AllUsers"></param>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.DisableStartup(System.String,System.Boolean)">
+            <summary>
+            Disable start-up
+            </summary>
+            <param name="App"></param>
+            <param name="AllUsers"></param>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.isEnableStartupApproved(System.String,System.Boolean)">
+            <summary>
+            Verify start-up approved key
+            </summary>
+            <param name="App"></param>
+            <param name="AllUsers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.EnableStartupApproved(System.String,System.Boolean)">
+            <summary>
+            Enable start-up application
+            </summary>
+            <param name="App"></param>
+            <param name="AllUsers"></param>
+        </member>
+        <member name="M:CommonClasses.ControlStartUp.DisableStartupApproved(System.String,System.Boolean)">
+            <summary>
+            Disable start-up application
+            </summary>
+            <param name="App"></param>
+            <param name="AllUsers"></param>
+        </member>
+        <member name="T:CommonClasses.SystemErrors.ErrorHelper">
+            <summary>
+            Error helper
+            </summary>
+        </member>
+        <member name="M:CommonClasses.SystemErrors.ErrorHelper.GetLocalizedMessage(CommonClasses.SystemErrors.ErrorType,System.String)">
+            <summary>
+            Get localized message
+            </summary>
+            <param name="errorCode"></param>
+            <param name="languageCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.SystemErrors.ErrorHelper.GetLocalizedSolution(CommonClasses.SystemErrors.ErrorType,System.String)">
+            <summary>
+            Get localized solution
+            </summary>
+            <param name="errorCode"></param>
+            <param name="languageCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.SystemErrors.ErrorType">
+            <summary>
+            Error type
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.ArgumentNullException">
+            <summary>
+            Argument cannot be null
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.ArgumentOutOfRangeException">
+            <summary>
+            Argument is out of range
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.ArgumentException">
+            <summary>
+            Invalid argument
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.IOException">
+            <summary>
+            Input/output error
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.JsonReaderException">
+            <summary>
+            JSON reading error
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.JsonException">
+            <summary>
+            General JSON error
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.NotSupportedException">
+            <summary>
+            Operation not supported
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.ObjectDisposedException">
+            <summary>
+            Object has been disposed
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.InvalidOperationException">
+            <summary>
+            Invalid operation
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.TimeoutException">
+            <summary>
+            Timeout exceeded
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.UnauthorizedAccessException">
+            <summary>
+            Access denied
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.COMException">
+            <summary>
+            COM call error
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.SocketException_ConnectionRefused">
+            <summary>
+            Connection error
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.SocketException_HostNotFound">
+            <summary>
+            Host not found
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.SocketException_HostUnreachable">
+            <summary>
+            Host unreachable
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.SocketException_NetworkUnreachable">
+            <summary>
+            Network unreachable
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.SocketException_TimedOut">
+            <summary>
+            Operation timed out
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.SocketException_Exception">
+            <summary>
+            General socket error
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.ExecutionError">
+            <summary>
+            ExecutionError
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SystemErrors.ErrorType.Unknown">
+            <summary>
+            Unknown error
+            </summary>
+        </member>
+        <member name="T:CommonClasses.SystemErrors.ErrorTypeExtensions">
+            <summary>
+            ErrorTypeExtensions
+            </summary>
+        </member>
+        <member name="M:CommonClasses.SystemErrors.ErrorTypeExtensions.Code(CommonClasses.SystemErrors.ErrorType)">
+            <summary>
+            Code
+            </summary>
+            <param name="errorType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.SystemErrors.ErrorData">
+            <summary>
+            Errors data
+            </summary>
+        </member>
+        <member name="P:CommonClasses.SystemErrors.ErrorData.Code">
+            <summary>
+            Code
+            </summary>
+        </member>
+        <member name="P:CommonClasses.SystemErrors.ErrorData.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:CommonClasses.SystemErrors.ErrorData.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="T:CommonClasses.SystemErrors.LocalizeMessageAttribute">
+            <summary>
+            LocalizeMessageAttribute
+            </summary>
+        </member>
+        <member name="P:CommonClasses.SystemErrors.LocalizeMessageAttribute.Messages">
+            <summary>
+            Messages
+            </summary>
+        </member>
+        <member name="M:CommonClasses.SystemErrors.LocalizeMessageAttribute.#ctor(System.String[])">
+            <summary>
+            LocalizeMessageAttribute
+            </summary>
+            <param name="languageMessages"></param>
+        </member>
+        <member name="T:CommonClasses.SystemErrors.LocalizeSolutionAttribute">
+            <summary>
+            LocalizeSolutionAttribute
+            </summary>
+        </member>
+        <member name="M:CommonClasses.SystemErrors.LocalizeSolutionAttribute.#ctor(System.String[])">
+            <summary>
+            LocalizeSolutionAttribute
+            </summary>
+            <param name="languageSolutions"></param>
+        </member>
+        <member name="T:CommonClasses.SystemErrors.SystemErrors">
+            <summary>
+            System errors
+            </summary>
+        </member>
+        <member name="P:CommonClasses.SystemErrors.SystemErrors.LanguageCode">
+            <summary>
+            Language code
+            </summary>
+        </member>
+        <member name="M:CommonClasses.SystemErrors.SystemErrors.GetErrorType(System.Exception)">
+            <summary>
+            Get system error code
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.SystemErrors.SystemErrors.GetErrorData(System.Exception)">
+            <summary>
+            Get system data error
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:CommonClasses.Logger.LogType">
+            <summary>
+            Log type
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Logger.LogType.Info">
+            <summary>
+            Info
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Logger.LogType.Warning">
+            <summary>
+            Warning
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Logger.LogType.Error">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Logger.LogType.Fatal">
+            <summary>
+            Fatal
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Logger.LogType.Debug">
+            <summary>
+            Debug
+            </summary>
+        </member>
+        <member name="T:CommonClasses.Logger.Console">
+            <summary>
+            Console logger
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Logger.Console.Log(System.String,CommonClasses.Logger.LogType)">
+            <summary>
+            Log
+            </summary>
+            <param name="message"></param>
+            <param name="logType"></param>
+        </member>
+        <member name="T:CommonClasses.Drivers.banks">
+            <summary>
+            banks
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Drivers.banks.none">
+            <summary>
+            none
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Drivers.banks.privat_bank">
+            <summary>
+            privat_bank
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Drivers.banks.oschad_bank">
+            <summary>
+            oschad_bank
+            </summary>
+        </member>
+        <member name="T:CommonClasses.Drivers.Drivers">
+            <summary>
+            Drivers
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Drivers.Drivers.ErrorCode">
+            <summary>
+            ErrorCode
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Drivers.Drivers.ErrorMessage">
+            <summary>
+            ErrorMessage
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Drivers.Drivers.#ctor">
+            <summary>
+            Drivers
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Drivers.Drivers.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Drivers.Drivers.GetDriverName(CommonClasses.DeviceType,CommonClasses.DeviceModel)">
+            <summary>
+            GetDriverName
+            </summary>
+            <param name="deviceType"></param>
+            <param name="_deviceModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Drivers.Drivers.GetDriverName(CommonClasses.ProtocolType)">
+            <summary>
+            GetDriverName
+            </summary>
+            <param name="_protocolType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Drivers.Drivers.CreateDriver(System.String)">
+            <summary>
+            CreateDriver
+            </summary>
+            <param name="ComObjectName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Drivers.Drivers.LoadPackageInstall(CommonClasses.DeviceType,CommonClasses.DeviceModel)">
+            <summary>
+            LoadPackageInstall
+            </summary>
+            <param name="deviceType"></param>
+            <param name="deviceModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.Logs">
+            <summary>
+            Logs
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Logs.loggerConfiguration(System.String,System.Int32,System.String)">
+            <summary>
+            Initialize logger configuration
+            </summary>
+            <param name="logsFile"></param>
+            <param name="daysFileCountLimit"></param>
+            <param name="SentryPointLog"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Logs.loggerConfiguration(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Initialize logger configuration
+            </summary>
+            <param name="logsFile"></param>
+            <param name="daysFileCountLimit"></param>
+            <param name="SentryPointLog"></param>
+            <param name="LoggingPointLog"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Logs.DeleteLogs(System.String,System.String,System.DateTime)">
+            <summary>
+            Delete logs file from directory with use mask filename and date
+            </summary>
+            <param name="directoryPath"></param>
+            <param name="filePattern"></param>
+            <param name="deleteBeforeDate"></param>
+        </member>
+        <member name="M:CommonClasses.Logs.DeleteLogsAsync(System.String,System.String,System.DateTime)">
+            <summary>
+            Async delete logs file from directory with use mask filename and date
+            </summary>
+            <param name="directoryPath"></param>
+            <param name="filePattern"></param>
+            <param name="deleteBeforeDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Logs.StartDeleteLogs(System.String,System.String,System.DateTime)">
+            <summary>
+            Start async delete logs file from directory with use mask filename and date
+            </summary>
+            <param name="directoryPath"></param>
+            <param name="filePattern"></param>
+            <param name="deleteBeforeDate"></param>
+        </member>
+        <member name="T:CommonClasses.typeOS">
+            <summary>
+            Тип ОС
+            </summary>
+        </member>
+        <member name="F:CommonClasses.typeOS.unknown">
+            <summary>
+            Невідома ОС
+            </summary>
+        </member>
+        <member name="F:CommonClasses.typeOS.win">
+            <summary>
+            Windows
+            </summary>
+        </member>
+        <member name="F:CommonClasses.typeOS.linux">
+            <summary>
+            Unix/Linux
+            </summary>
+        </member>
+        <member name="F:CommonClasses.typeOS.mac">
+            <summary>
+            Mac
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ProgramSettings">
+            <summary>
+            Program settings
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProgramSettings.Consts">
+            <summary>
+            Array of consts
+            </summary>
+        </member>
+        <member name="M:CommonClasses.ProgramSettings.#ctor">
+            <summary>
+            Program settings
+            </summary>
+        </member>
+        <member name="M:CommonClasses.ProgramSettings.#ctor(System.String[])">
+            <summary>
+            Program settings
+            </summary>
+            <param name="cmdParams"></param>
+        </member>
+        <member name="T:CommonClasses.Routes.RouteDrivers">
+            <summary>
+            RouteDrivers
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteDrivers.GetBanks(CommonClasses.Routes.Routes)">
+            <summary>
+            GetBanks
+            </summary>
+            <param name="client"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteDrivers.GetTerminals(CommonClasses.Routes.Routes)">
+            <summary>
+            GetTerminals
+            </summary>
+            <param name="client"></param>
+            <returns></returns>
+            //api/v1/enumerate/terminals
+        </member>
+        <member name="M:CommonClasses.Routes.RouteDrivers.GetInstallPackageOfProtocol(CommonClasses.Routes.Routes,System.String,System.String)">
+            <summary>
+            GetInstallPackageOfProtocol
+            </summary>
+            <param name="client"></param>
+            <param name="bankName"></param>
+            <param name="deviceModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteDrivers.GetInstallPackageOfTerminal(CommonClasses.Routes.Routes,System.String,System.String,System.String)">
+            <summary>
+            GetInstallPackageOfTerminal
+            </summary>
+            <param name="client"></param>
+            <param name="vendorId"></param>
+            <param name="deviceId"></param>
+            <param name="platform"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.Routes.Routes">
+            <summary>
+            Routes
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.Routes.server">
+            <summary>
+            server
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.Routes.port">
+            <summary>
+            port
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.Routes.service">
+            <summary>
+            service
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.Routes.apiVersion">
+            <summary>
+            apiVersion
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Routes.Routes.#ctor">
+            <summary>
+            Routes
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Routes.Routes.#ctor(System.String)">
+            <summary>
+            Routes
+            </summary>
+            <param name="_server"></param>
+        </member>
+        <member name="M:CommonClasses.Routes.Routes.#ctor(System.String,System.Int32)">
+            <summary>
+            Routes 
+            </summary>
+            <param name="_server"></param>
+            <param name="_port"></param>
+        </member>
+        <member name="M:CommonClasses.Routes.Routes.#ctor(System.String,System.Int32,System.String)">
+            <summary>
+            Routes
+            </summary>
+            <param name="_server"></param>
+            <param name="_port"></param>
+            <param name="_service"></param>
+        </member>
+        <member name="M:CommonClasses.Routes.Routes.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Routes.Routes.CreateClient">
+            <summary>
+            CreateClient
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.Routes.CreateClient(System.String)">
+            <summary>
+            CreateClient
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.Routes.sendRequestGET(System.String)">
+            <summary>
+            sendRequestGET
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.Routes.sendJSONRequestPOST(System.String,System.Object)">
+            <summary>
+            sendJSONRequestPOST
+            </summary>
+            <param name="path"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.Routes.DownloadData(System.String,System.String,System.String)">
+            <summary>
+            DownloadData
+            </summary>
+            <param name="path"></param>
+            <param name="filePath"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:CommonClasses.Routes.Channel">
+            <summary>
+            Channel data
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.Channel.name">
+            <summary>
+            name
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.Channel.latest_version">
+            <summary>
+            latest_version
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.Channel.description">
+            <summary>
+            description
+            </summary>
+        </member>
+        <member name="T:CommonClasses.Routes.VersionInfo">
+            <summary>
+            Version data
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.VersionInfo.version">
+            <summary>
+            version
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.VersionInfo.release_date">
+            <summary>
+            release_date
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.VersionInfo.updated">
+            <summary>
+            updated
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.VersionInfo.changelog">
+            <summary>
+            changelog
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.VersionInfo.critical_update">
+            <summary>
+            critical_update
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.VersionInfo.should_be_updated">
+            <summary>
+            should_be_updated
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.VersionInfo.request_version">
+            <summary>
+            request_version
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.VersionInfo.actual_version">
+            <summary>
+            actual_version
+            </summary>
+        </member>
+        <member name="F:CommonClasses.Routes.VersionInfo.update_branch">
+            <summary>
+            update_branch
+            </summary>
+        </member>
+        <member name="T:CommonClasses.Routes.RouteUpdate">
+            <summary>
+            RouteUpdate
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetChannels(CommonClasses.Routes.Routes,System.String)">
+            <summary>
+            GetChannels
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetActualVersion(CommonClasses.Routes.Routes,System.String,System.String)">
+            <summary>
+            GetActualVersion
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <param name="channel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetCheckUpdate(CommonClasses.Routes.Routes,System.String,System.String,System.String,CommonClasses.Routes.VersionInfo@)">
+            <summary>
+            GetCheckUpdate
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <param name="channel"></param>
+            <param name="version"></param>
+            <param name="versionInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetCheckUpdateInformation(CommonClasses.Routes.Routes,System.String,System.String,System.String,CommonClasses.Routes.VersionInfo@)">
+            <summary>
+            GetCheckUpdateInformation
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <param name="channel"></param>
+            <param name="version"></param>
+            <param name="versionInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetUpdatesInfo(CommonClasses.Routes.Routes,System.String,System.String,CommonClasses.Routes.VersionInfo[]@)">
+            <summary>
+            GetUpdatesInfo
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <param name="version"></param>
+            <param name="versionInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetDetailVersionInfo(CommonClasses.Routes.Routes,System.String,System.String)">
+            <summary>
+            GetDetailVersionInfo
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetFilesChanges(CommonClasses.Routes.Routes,System.String,System.String,System.String)">
+            <summary>
+            GetFilesChanges
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetInstallPackage(CommonClasses.Routes.Routes,System.String,System.String,System.String)">
+            <summary>
+            GetInstallPackage
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetLastInstallPackage(CommonClasses.Routes.Routes,System.String,System.String)">
+            <summary>
+            GetLastInstallPackage
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <param name="platform"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetArchivePackage(CommonClasses.Routes.Routes,System.String,System.String,System.String)">
+            <summary>
+            GetArchivePackage
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetDownloadFile(CommonClasses.Routes.Routes,System.String,System.String,System.String,System.String)">
+            <summary>
+            GetDownloadFile
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Routes.RouteUpdate.GetDownloadFile(CommonClasses.Routes.Routes,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            GetDownloadFile
+            </summary>
+            <param name="client"></param>
+            <param name="component"></param>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <param name="filename"></param>
+            <param name="destPath"></param>
+            <param name="destFile"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.SearchingTerminals.Network">
+            <summary>
+            Serarch terminals in the network
+            </summary>
+        </member>
+        <member name="M:CommonClasses.SearchingTerminals.Network.Start(CommonClasses.SearchingTerminals.Search,System.Int32)">
+            <summary>
+            Start search terminals
+            </summary>
+            <param name="search"></param>
+            <param name="port"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CommonClasses.SearchingTerminals.Network.Start(CommonClasses.SearchingTerminals.Search,System.Net.NetworkInformation.NetworkInterface,System.Int32)">
+            <summary>
+            Start search terminals
+            </summary>
+            <param name="search"></param>
+            <param name="networkInterface"></param>
+            <param name="port"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CommonClasses.SearchingTerminals.Network.ScanAddresses(CommonClasses.SearchingTerminals.Search,System.Int32)">
+            <summary>
+            ScanAddresses
+            </summary>
+            <param name="search"></param>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.SearchingTerminals.Network.ScanAddressesAsync(CommonClasses.SearchingTerminals.Search,System.Int32)">
+            <summary>
+            ScanAddressesAsync
+            </summary>
+            <param name="search"></param>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.SearchingTerminals.Network.ScanAddressesAsync(CommonClasses.SearchingTerminals.Search,System.Net.NetworkInformation.NetworkInterface,System.Int32)">
+            <summary>
+            ScanAddressesAsync
+            </summary>
+            <param name="search"></param>
+            <param name="networkInterface"></param>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.SearchingTerminals.Search">
+            <summary>
+            Search terminals
+            </summary>
+        </member>
+        <member name="P:CommonClasses.SearchingTerminals.Search.numThreads">
+            <summary>
+            Count created thread
+            </summary>
+        </member>
+        <member name="P:CommonClasses.SearchingTerminals.Search.semaphore">
+            <summary>
+            semaphore
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SearchingTerminals.Search.found">
+            <summary>
+            Found terminal
+            </summary>
+        </member>
+        <member name="F:CommonClasses.SearchingTerminals.Search.connectProperties">
+            <summary>
+            Properties connected to terminal
+            </summary>
+        </member>
+        <member name="M:CommonClasses.SearchingTerminals.Search.#ctor">
+            <summary>
+            Search()
+            </summary>
+        </member>
+        <member name="M:CommonClasses.SearchingTerminals.Search.#ctor(System.Int32)">
+            <summary>
+            Search(int numThreads)
+            </summary>
+            <param name="numThreads"></param>
+        </member>
+        <member name="M:CommonClasses.SearchingTerminals.Search.ShowWaitForm">
+            <summary>
+            ShowWaitForm()
+            </summary>
+        </member>
+        <member name="M:CommonClasses.SearchingTerminals.Search.CloseWaitForm">
+            <summary>
+            CloseWaitForm()
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ServerConfig">
+            <summary>
+            Server config data
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.isLocalServer">
+            <summary>
+            isLocalServer
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.server">
+            <summary>
+            server
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.port">
+            <summary>
+            port
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ServerConfig.ChangedChannel">
+            <summary>
+            ChangedChannel
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.channel">
+            <summary>
+            channel
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.channelCorporate">
+            <summary>
+            channelCorporate
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.client">
+            <summary>
+            client
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.check_updates_frequency">
+            <summary>
+            check_updates_frequency
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.wait_update_day">
+            <summary>
+            wait_update_day
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.updateOnStartApplication">
+            <summary>
+            updateOnStartApplication
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.standartCloseApplication">
+            <summary>
+            standartCloseApplication
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.limitDaysLogs">
+            <summary>
+            limitDaysLogs
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.autoRun">
+            <summary>
+            autoRun
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ServerConfig.TcpSocketPort">
+            <summary>
+            Tcp Socket Port
+            </summary>
+        </member>
+        <member name="M:CommonClasses.ServerConfig.#ctor">
+            <summary>
+            Create server config with of default value
+            </summary>
+        </member>
+        <member name="M:CommonClasses.ServerConfig.#ctor(System.String)">
+            <summary>
+            Read server config to memory from file
+            </summary>
+            <param name="_fileConfig"></param>
+        </member>
+        <member name="M:CommonClasses.ServerConfig.SaveConfig">
+            <summary>
+            Save configuration
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.JsonInheritanceAttribute">
+            <summary>
+            Extensions for Attribute
+            </summary>
+        </member>
+        <member name="M:CommonClasses.JsonInheritanceAttribute.#ctor(System.String,System.Type)">
+            <summary>
+            JsonInheritanceAttribute
+            </summary>
+            <param name="key"></param>
+            <param name="type"></param>
+        </member>
+        <member name="P:CommonClasses.JsonInheritanceAttribute.Key">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:CommonClasses.JsonInheritanceAttribute.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="T:CommonClasses.JsonInheritanceConverter">
+            <summary>
+            Extensions for JsonConverter
+            </summary>
+        </member>
+        <member name="F:CommonClasses.JsonInheritanceConverter.DefaultDiscriminatorName">
+            <summary>
+            DefaultDiscriminatorName
+            </summary>
+        </member>
+        <member name="M:CommonClasses.JsonInheritanceConverter.#ctor">
+            <summary>
+            JsonInheritanceConverter
+            </summary>
+        </member>
+        <member name="M:CommonClasses.JsonInheritanceConverter.#ctor(System.String)">
+            <summary>
+            JsonInheritanceConverter
+            </summary>
+            <param name="discriminatorName"></param>
+        </member>
+        <member name="P:CommonClasses.JsonInheritanceConverter.DiscriminatorName">
+            <summary>
+            DiscriminatorName
+            </summary>
+        </member>
+        <member name="M:CommonClasses.JsonInheritanceConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            WriteJson
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="serializer"></param>
+        </member>
+        <member name="P:CommonClasses.JsonInheritanceConverter.CanWrite">
+            <summary>
+            CanWrite
+            </summary>
+        </member>
+        <member name="P:CommonClasses.JsonInheritanceConverter.CanRead">
+            <summary>
+            CanRead
+            </summary>
+        </member>
+        <member name="M:CommonClasses.JsonInheritanceConverter.CanConvert(System.Type)">
+            <summary>
+            CanConvert
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.JsonInheritanceConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            ReadJson
+            </summary>
+            <param name="reader"></param>
+            <param name="objectType"></param>
+            <param name="existingValue"></param>
+            <param name="serializer"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.NumericAttribute">
+            <summary>
+            NumericAttribute
+            </summary>
+        </member>
+        <member name="M:CommonClasses.NumericAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            IsValid
+            </summary>
+            <param name="value"></param>
+            <param name="validationContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.OSFamily">
+            <summary>
+            Тип ОС
+            </summary>
+        </member>
+        <member name="F:CommonClasses.OSFamily.unknown">
+            <summary>
+            Невідомий тип ОС
+            </summary>
+        </member>
+        <member name="F:CommonClasses.OSFamily.win_x86">
+            <summary>
+            Windows (x86)
+            </summary>
+        </member>
+        <member name="F:CommonClasses.OSFamily.linux_x86_64">
+            <summary>
+            Unix/Linux
+            </summary>
+        </member>
+        <member name="T:CommonClasses.TransactionType">
+            <summary>
+            Типи операцій на терміналі
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.undefined">
+            <summary>
+            Не визначена
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Purchase">
+            <summary>
+            Оплата
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Refund">
+            <summary>
+            Повернення
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Void">
+            <summary>
+            Скасування оплати
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Completion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.XBalance">
+            <summary>
+            X-звіт
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.ZBalance">
+            <summary>
+            Z-звіт
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.TxnNum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Connection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.PrintZBalance">
+            <summary>
+            Друк Z-звіту
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.PrintBatchJournal">
+            <summary>
+            Друк журналу операцій
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Confirm">
+            <summary>
+            Застосування результату операції
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.ReadDiscount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.TxnDataByInv">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.TxnDataByOrder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.BalanceInq">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Deposit">
+            <summary>
+            Поповнення рахунку
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.StartScenario">
+            <summary>
+            Запуск скрипта
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.FileReceived">
+            <summary>
+            Завантаження файлу на термінал
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Ping">
+            <summary>
+            Перевірка зв'язку з терміналом
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.CashAdvance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.AccountFunding">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.AccountConfirmation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.PurchaseWithCashback">
+            <summary>
+            Оплата/продаж з видачею готівки
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Preauthorization">
+            <summary>
+            Предавторизація
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.SalePreauth">
+            <summary>
+            Завершення предавторизації
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.VoidPreauth">
+            <summary>
+            Скасування предавторизації
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Cash">
+            <summary>
+            Видача готівки
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Balance">
+            <summary>
+            Запит балансу
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.Echo">
+            <summary>
+            Перевірка зв’язку з процесинговим центром еквайрингової інституції
+            </summary>
+        </member>
+        <member name="F:CommonClasses.TransactionType.PartialVoid">
+            <summary>
+            Часткове скасування операції
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ConnectTerminalDTO">
+            <summary>
+            ConnectTerminalDTO
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ConnectTerminalDTO.name">
+            <summary>
+            Назва підключення
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ConnectTerminalDTO.properties">
+            <summary>
+            Паарметри підключення
+            </summary>
+        </member>
+        <member name="T:CommonClasses.DeviceDTO">
+            <summary>
+            Інформація про пристрій/мерчант
+            </summary>
+        </member>
+        <member name="P:CommonClasses.DeviceDTO.id">
+            <summary>
+            UUID пристрою для ідентифікації
+            </summary>
+        </member>
+        <member name="P:CommonClasses.DeviceDTO.name">
+            <summary>
+            Назва пристрою/мерчанта
+            </summary>
+        </member>
+        <member name="P:CommonClasses.DeviceDTO.type">
+            <summary>
+            Тип пристрою
+            </summary>
+        </member>
+        <member name="P:CommonClasses.DeviceDTO.BankName">
+            <summary>
+            Назва банку, якому належить термінал
+            </summary>
+        </member>
+        <member name="P:CommonClasses.DeviceDTO.model">
+            <summary>
+            Модель термінала
+            </summary>
+        </member>
+        <member name="P:CommonClasses.DeviceDTO.protocol">
+            <summary>
+            Тип протоколу для взаємодії з терміналом
+            </summary>
+        </member>
+        <member name="P:CommonClasses.DeviceDTO.properties">
+            <summary>
+            Параметри підключення до терміналу
+            </summary>
+        </member>
+        <member name="P:CommonClasses.DeviceDTO.connected">
+            <summary>
+            Ідентифікатор використання терміналу (не використовується)
+            </summary>
+        </member>
+        <member name="P:CommonClasses.DeviceDTO.lastOperationId">
+            <summary>
+            Ідентифікатор останньої операції
+            </summary>
+        </member>
+        <member name="P:CommonClasses.DeviceDTO.verifyPaymentSystem">
+            <summary>
+            Ознака використання верифікації платіжної системи
+            </summary>
+        </member>
+        <member name="P:CommonClasses.DeviceDTO.codeRegistation">
+            <summary>
+            Реєстраційний код мерчанта (ІПН/ЄДРПОУ)
+            </summary>
+        </member>
+        <member name="T:CommonClasses.PaymentMode">
+            <summary>
+            Режим оплати. Класична, QR тощо
+            </summary>
+        </member>
+        <member name="F:CommonClasses.PaymentMode.classic">
+            <summary>
+            Класична оплата
+            </summary>
+        </member>
+        <member name="F:CommonClasses.PaymentMode.QR">
+            <summary>
+            QR-оплата
+            </summary>
+        </member>
+        <member name="T:CommonClasses.DeviceType">
+            <summary>An enumeration.</summary>
+        </member>
+        <member name="F:CommonClasses.DeviceType.privatbank">
+            <summary>
+            Приватбанк
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceType.oschadbank">
+            <summary>
+            Ощадбанк
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceType.avalbank">
+            <summary>
+            Райффайзен Банк
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceType.vostokbank">
+            <summary>
+            Банк ВОСТОК
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceType.ukrgasbank">
+            <summary>
+            Укргазбанк
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceType.ukrsibbank">
+            <summary>
+            УКРСИББАНК
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceType.pivdennyybank">
+            <summary>
+            "Банк ПІВДЕННИЙ
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceType.pumb">
+            <summary>
+            ПУМБ
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceType.sensbank">
+            <summary>
+            Банк Сенс
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceType.none">
+            <summary>
+            Інший банк (будь-який банк)
+            </summary>
+        </member>
+        <member name="T:CommonClasses.DeviceModel">
+            <summary>An enumeration.</summary>
+        </member>
+        <member name="F:CommonClasses.DeviceModel.none">
+            <summary>
+            Тип терміналу не вказаний
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceModel.Ingenico_All">
+            <summary>
+            Ingenico (всі термінали)
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceModel.Ingenico_Desk_3200">
+            <summary>
+            Ingenico Desk/3200
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceModel.PAX_A930">
+            <summary>
+            PAX A930
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceModel.PAX_S800">
+            <summary>
+            PAX s800
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceModel.Verifone_V520">
+            <summary>
+            Verifone V*520
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceModel.Verifone_V675">
+            <summary>
+            Verifone V*675
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceModel.QR">
+            <summary>
+            QR
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceModel.Verifone_All">
+            <summary>
+            Verifone (всі термінали)
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceModel.Castles_Saturn_1000">
+            <summary>
+            Castles Saturn 1000
+            </summary>
+        </member>
+        <member name="F:CommonClasses.DeviceModel.Tactilion_P2000L">
+            <summary>
+            Tactilion P2000L
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ProtocolType">
+            <summary>
+            An enumeration.
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.none">
+            <summary>
+            Відсутній тип протоколу обміну
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.IngenicoBPOS">
+            <summary>
+            Ingenico BPOS
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.PrivatJSON">
+            <summary>
+            Privat JSON
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.SSIJson">
+            <summary>
+            SSI JSON
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.SSIECR">
+            <summary>
+            SSI ECR
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.VerifonePrintec">
+            <summary>
+            Verifone Printec
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.Excellio">
+            <summary>
+            Excellio
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.GPE">
+            <summary>
+            GPE
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.QRPay">
+            <summary>
+            QR pay
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.BPOS1_NO_CONFIRM">
+            <summary>
+            BPOS1 (NO CONFIRM) (тільки для Приватбанку)
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.KKM_2_0">
+            <summary>
+            KKM 2.0
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ProtocolType.Asap_PEC">
+            <summary>
+            Asap (PEK)
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ConnectType">
+            <summary>
+            An enumeration.
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ConnectType.tcp">
+            <summary>
+            TCP/IP (Wi-Fi) підключення
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ConnectType.rs232">
+            <summary>
+            COM- або USB-з'єднання (використовується в ОС Windows)
+            </summary>
+        </member>
+        <member name="F:CommonClasses.ConnectType.serial">
+            <summary>
+            COM- або USB-з'єднання (використовується в ОС Linux)
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ErrorResponse">
+            <summary>
+            Помилка виконання запиту
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ErrorResponse.success">
+            <summary>
+            success
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ErrorResponse.code">
+            <summary>
+            code
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ErrorResponse.error">
+            <summary>
+            error
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ErrorResponse.description">
+            <summary>
+            description
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ErrorResponse.result">
+            <summary>
+            result
+            </summary>
+        </member>
+        <member name="T:CommonClasses.HTTPValidationError">
+            <summary>
+            Помилка валідації даних HTTP запиту
+            </summary>
+        </member>
+        <member name="P:CommonClasses.HTTPValidationError.Detail">
+            <summary>
+            Список помилок валідації
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ValidationRequestData">
+            <summary>
+            Помилка виконання запиту
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ValidationRequestData.success">
+            <summary>
+            success
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ValidationRequestData.code">
+            <summary>
+            code
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ValidationRequestData.error">
+            <summary>
+            description
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ValidationRequestData.description">
+            <summary>
+            error
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ValidationRequestData.result">
+            <summary>
+            result
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ConnectProperties">
+            <summary>
+            Параметри підключення до терміналу
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ConnectProperties.mode">
+            <summary>
+            Тип підключення (tcp/rs232/serial)
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ConnectProperties.merchant_id">
+            <summary>
+            Ідентифікатор продавця
+            </summary>
+        </member>
+        <member name="M:CommonClasses.ConnectProperties.#ctor(CommonClasses.ConnectType)">
+            <summary>
+            Базовий клас типу підключення
+            </summary>
+            <param name="connectType"></param>
+        </member>
+        <member name="T:CommonClasses.TCPConnectProperties">
+            <summary>
+            TCP connection data
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TCPConnectProperties.mode">
+            <summary>
+            Тип підключення : tcp
+            </summary>
+            <returns>ConnectType.tcp</returns>
+        </member>
+        <member name="P:CommonClasses.TCPConnectProperties.host">
+            <summary>
+            host
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TCPConnectProperties.port">
+            <summary>
+            port
+            </summary>
+        </member>
+        <member name="M:CommonClasses.TCPConnectProperties.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CommonClasses.RS232ConnectProperties">
+            <summary>
+            RS232 connection data
+            </summary>
+        </member>
+        <member name="P:CommonClasses.RS232ConnectProperties.mode">
+            <summary>
+            Тип підключення : rs232
+            </summary>
+            <returns>ConnectType.rs232</returns>
+        </member>
+        <member name="P:CommonClasses.RS232ConnectProperties.port">
+            <summary>
+            port
+            </summary>
+        </member>
+        <member name="P:CommonClasses.RS232ConnectProperties.baudrate">
+            <summary>
+            baudrate
+            </summary>
+        </member>
+        <member name="M:CommonClasses.RS232ConnectProperties.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CommonClasses.LinuxRS232ConnectProperties">
+            <summary>
+            Serial connection data
+            </summary>
+        </member>
+        <member name="P:CommonClasses.LinuxRS232ConnectProperties.mode">
+            <summary>
+            Тип підключення : serial
+            </summary>
+            <returns>ConnectType.serial</returns>
+        </member>
+        <member name="P:CommonClasses.LinuxRS232ConnectProperties.port">
+            <summary>
+            port
+            </summary>
+        </member>
+        <member name="P:CommonClasses.LinuxRS232ConnectProperties.baudrate">
+            <summary>
+            baudrate
+            </summary>
+        </member>
+        <member name="M:CommonClasses.LinuxRS232ConnectProperties.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ConnectPropertiesTypes">
+            <summary>
+            ConnectPropertiesTypes
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ConnectPropertiesTypes.list">
+            <summary>
+            list
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ValidationError">
+            <summary>
+            Помилка валідації даних
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ValidationError.loc">
+            <summary>
+            loc
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ValidationError.msg">
+            <summary>
+            msg
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ValidationError.type">
+            <summary>
+            type
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ValidationError.AdditionalProperties">
+            <summary>
+            data
+            </summary>
+        </member>
+        <member name="T:CommonClasses.PaymentDTO">
+            <summary>
+            Основний блок даних для здійснення операції оплати/повернення
+            </summary>
+        </member>
+        <member name="P:CommonClasses.PaymentDTO.amount">
+            <summary>
+            Сума оплати. Вказується в копійках.
+            </summary>
+        </member>
+        <member name="P:CommonClasses.PaymentDTO.discount">
+            <summary>
+            Сума знижки. Вказується в копійках. Опціонально.
+            </summary>
+        </member>
+        <member name="P:CommonClasses.PaymentDTO.amountOfParts">
+            <summary>
+            Кількість платежів. Відноситься до послуги оплати частинами від Приватбанку. Опціонально.
+            </summary>
+        </member>
+        <member name="P:CommonClasses.PaymentDTO.discountedAmount">
+            <summary>
+            Сума знижки. Вказується в копійках. Опціональний ключ, якщо розрахунок знижки на певні діапазони БІН номерів карт здійснюється на стороні зовнішньої системи. Використовується в протоколі SSI JSON.
+            </summary>
+        </member>
+        <member name="P:CommonClasses.PaymentDTO.merchant_id">
+            <summary>
+            Ідентифікатор торгівця, який запрограмований банком на терміналі.
+            </summary>
+        </member>
+        <member name="P:CommonClasses.PaymentDTO.id">
+            <summary>
+            Унікальний ідентифікатор операції. Опціонально.
+            </summary>
+        </member>
+        <member name="T:CommonClasses.PerformPurchaseDTO">
+            <summary>
+            Блок даних для здіснення операції оплати
+            </summary>
+        </member>
+        <member name="P:CommonClasses.PerformPurchaseDTO.facepay">
+            <summary>
+            Ідентифікація покупця по обличчю. Використовується на терміналах від Приватбанку. Опціонально.
+            </summary>
+        </member>
+        <member name="T:CommonClasses.PerformVoidDTO">
+            <summary>
+            Блок даних для здійснення операції повернення коштів
+            </summary>
+        </member>
+        <member name="P:CommonClasses.PerformVoidDTO.invoicenum">
+            <summary>
+            Номер чека, по якому робиться повернення. Опціонально.
+            </summary>
+        </member>
+        <member name="P:CommonClasses.PerformVoidDTO.rrn">
+            <summary>
+            Ідентифікатор банківської транзакції, по якій потрібно зробити повернення коштів.
+            </summary>
+        </member>
+        <member name="T:CommonClasses.BaseResponseDTO">
+            <summary>
+            Блок даних, які містяться у відповіді на виконання операції
+            </summary>
+        </member>
+        <member name="P:CommonClasses.BaseResponseDTO.success">
+            <summary>
+            Статус успішного виконання операції. При значенні False дані про помилку повертаються в полях "code", "description" та додатково "message"
+            </summary>
+        </member>
+        <member name="P:CommonClasses.BaseResponseDTO.terminalStatus">
+            <summary>
+            Статус термінала
+            </summary>
+        </member>
+        <member name="P:CommonClasses.BaseResponseDTO.code">
+            <summary>
+            Код помилки
+            </summary>
+        </member>
+        <member name="P:CommonClasses.BaseResponseDTO.msg">
+            <summary>
+            Додаткове повідомлення про помилку
+            </summary>
+        </member>
+        <member name="P:CommonClasses.BaseResponseDTO.error">
+            <summary>
+            Опис помилки
+            </summary>
+        </member>
+        <member name="P:CommonClasses.BaseResponseDTO.id">
+            <summary>
+            Ідентифікатор операції
+            </summary>
+        </member>
+        <member name="P:CommonClasses.BaseResponseDTO.result">
+            <summary>
+            Результат виконання операції на терміналі
+            </summary>
+        </member>
+        <member name="T:CommonClasses.ResponseDTO">
+            <summary>
+            Блок даних, що містить відповідь від терміналу
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.terminal_id">
+            <summary>
+            terminal_id
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.terminal">
+            <summary>
+            terminal
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.merchant_id">
+            <summary>
+            merchant_id
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.pan">
+            <summary>
+            pan
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.card_mask">
+            <summary>
+            card_mask
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.rrn">
+            <summary>
+            rrn
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.currency">
+            <summary>
+            currency
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.currency_code">
+            <summary>
+            currency_code
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.auth_code">
+            <summary>
+            auth_code
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.date_time">
+            <summary>
+            date_time
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.invoice_num">
+            <summary>
+            invoice_num
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.receipt_no">
+            <summary>
+            receipt_no
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.exp_date">
+            <summary>
+            exp_date
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.card_holder">
+            <summary>
+            card_holder
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.owner_name">
+            <summary>
+            owner_name
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.issuer_name">
+            <summary>
+            issuer_name
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.payment_system">
+            <summary>
+            payment_system
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.totals_debit_num">
+            <summary>
+            totals_debit_num
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.totals_debit_amt">
+            <summary>
+            totals_debit_amt
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.totals_credit_num">
+            <summary>
+            totals_credit_num
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.totals_credit_amt">
+            <summary>
+            totals_credit_amt
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.totals_cancelled_num">
+            <summary>
+            totals_cancelled_num
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.totals_cancelled_amt">
+            <summary>
+            totals_cancelled_amt
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.sign_verif">
+            <summary>
+            sign_verif
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.signature_required">
+            <summary>
+            signature_required
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.txn_num">
+            <summary>
+            txn_num
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.amount">
+            <summary>
+            amount
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.value">
+            <summary>
+            value
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.add_amount">
+            <summary>
+            add_amount
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.discountedAmount">
+            <summary>
+            discountedAmount -  опціональний ключ, якщо розрахунок знижки на певні діапазони БІН номерів карт здійснюється на стороні зовнішньої системи (тільки для протоколу SSI JSON)
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.txn_type">
+            <summary>
+            txn_type
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.entry_mode">
+            <summary>
+            entry_mode
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.emv_aid">
+            <summary>
+            emv_aid
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.scenario_data">
+            <summary>
+            scenario_data
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.terminal_info">
+            <summary>
+            terminal_info
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.receipt">
+            <summary>
+            receipt (slip)
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.bankAcquirer">
+            <summary>
+            bank_acquirer
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.bank_name">
+            <summary>
+            bank_name
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.acquirer_and_seller">
+            <summary>
+            acquirer_and_seller
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.provider_type">
+            <summary>
+            provider_type
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ResponseDTO.AdditionalProperties">
+            <summary>
+            data
+            </summary>
+        </member>
+        <member name="T:CommonClasses.Merchant">
+            <summary>
+            Опис даних мерчанта
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Merchant.id">
+            <summary>
+            Запрограмований банком ідентифікатор мерчанта
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Merchant.name">
+            <summary>
+            Запрограмована банком назва мерчанта
+            </summary>
+        </member>
+        <member name="T:CommonClasses.Merchants">
+            <summary>
+            Запрограмований банком список мерчантів у терміналі
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Merchants.merchants">
+            <summary>
+            Список мерчантів. Якщо не вдалося отримати інформацію про мерчантів, то повертається пустий список.
+            </summary>
+        </member>
+        <member name="T:CommonClasses.Terminals">
+            <summary>
+            Terminals
+            </summary>
+        </member>
+        <member name="T:CommonClasses.Terminals.Device">
+            <summary>
+            Device
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Terminals.Device.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Terminals.Device.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="T:CommonClasses.Terminals.Protocol">
+            <summary>
+            Protocol
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Terminals.Protocol.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Terminals.Protocol.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Terminals.GetDescription``1(``0)">
+            <summary>
+            GetDescription
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Terminals.GetBankDevices(CommonClasses.DeviceType)">
+            <summary>
+            GetBankDevices
+            </summary>
+            <param name="deviceType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Terminals.GetDeviceTypes(CommonClasses.PaymentMode)">
+            <summary>
+            GetDeviceTypes
+            </summary>
+            <param name="paymentMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Terminals.GetDeviceModels(CommonClasses.PaymentMode)">
+            <summary>
+            GetDeviceModels
+            </summary>
+            <param name="paymentMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Terminals.GetDeviceModels(CommonClasses.DeviceType,CommonClasses.PaymentMode)">
+            <summary>
+            GetDeviceModels
+            </summary>
+            <param name="deviceType"></param>
+            <param name="paymentMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Terminals.GetProtocolType(CommonClasses.DeviceModel)">
+            <summary>
+            GetProtocolType
+            </summary>
+            <param name="deviceModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Terminals.GetProtocolType(CommonClasses.DeviceType,CommonClasses.DeviceModel)">
+            <summary>
+            GetProtocolType
+            </summary>
+            <param name="deviceType"></param>
+            <param name="deviceModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.TerminalsData.DeviceDataUSB">
+            <summary>
+            DeviceDataUSB
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TerminalsData.DeviceDataUSB.VendorId">
+            <summary>
+            VendorId
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TerminalsData.DeviceDataUSB.VendorDescription">
+            <summary>
+            VendorDescription
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TerminalsData.DeviceDataUSB.DeviceId">
+            <summary>
+            DeviceId
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TerminalsData.DeviceDataUSB.DeviceDescription">
+            <summary>
+            DeviceDescription
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TerminalsData.DeviceDataUSB.Port">
+            <summary>
+            Port
+            </summary>
+        </member>
+        <member name="T:CommonClasses.TerminalsData.DeviceInfo">
+            <summary>
+            DeviceInfo
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TerminalsData.DeviceInfo.DeviceId">
+            <summary>
+            DeviceId
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TerminalsData.DeviceInfo.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="T:CommonClasses.TerminalsData.VendorProductData">
+            <summary>
+            VendorProductData
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TerminalsData.VendorProductData.VendorId">
+            <summary>
+            VendorId
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TerminalsData.VendorProductData.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TerminalsData.VendorProductData.driver">
+            <summary>
+            driver
+            </summary>
+        </member>
+        <member name="P:CommonClasses.TerminalsData.VendorProductData.devices">
+            <summary>
+            devices
+            </summary>
+        </member>
+        <member name="T:CommonClasses.TerminalsData.Terminals">
+            <summary>
+            Terminals
+            </summary>
+        </member>
+        <member name="M:CommonClasses.TerminalsData.Terminals.#ctor(System.String)">
+            <summary>
+            Terminals
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:CommonClasses.TerminalsData.Terminals.getVendorProductData(System.String)">
+            <summary>
+            Get Vendor product data
+            </summary>
+            <param name="VID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.TerminalsData.Terminals.getVendorDescription(System.String)">
+            <summary>
+            getVendorDescription
+            </summary>
+            <param name="VID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.TerminalsData.Terminals.getProductDescription(System.String,System.String)">
+            <summary>
+            getProductDescription
+            </summary>
+            <param name="VID"></param>
+            <param name="PID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.TerminalsData.Terminals.isFoundTerminals(System.String,System.String,System.String@)">
+            <summary>
+            isFoundTerminals
+            </summary>
+            <param name="VID"></param>
+            <param name="PID"></param>
+            <param name="description"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.TerminalsData.Terminals.GetVidPidFromHardwareId(System.String,System.String@,System.String@)">
+            <summary>
+            GetVidPidFromHardwareId
+            </summary>
+            <param name="hardwareId"></param>
+            <param name="vid"></param>
+            <param name="pid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonClasses.InfoUpdatesChangedEventArgs">
+            <summary>
+            InfoUpdatesChangedEventArgs
+            </summary>
+        </member>
+        <member name="P:CommonClasses.InfoUpdatesChangedEventArgs.InfoUpdates">
+            <summary>
+            Array InfoUpdates
+            </summary>
+        </member>
+        <member name="M:CommonClasses.InfoUpdatesChangedEventArgs.#ctor(CommonClasses.Routes.VersionInfo[])">
+            <summary>
+            InfoUpdatesChangedEventArgs
+            </summary>
+            <param name="infoUpdates"></param>
+        </member>
+        <member name="T:CommonClasses.NeedUpdateLoadEventArgs">
+            <summary>
+            NeedUpdateLoadEventArgs
+            </summary>
+        </member>
+        <member name="P:CommonClasses.NeedUpdateLoadEventArgs.NeedUpdateLoad">
+            <summary>
+            NeedUpdateLoad
+            </summary>
+        </member>
+        <member name="M:CommonClasses.NeedUpdateLoadEventArgs.#ctor(System.Boolean)">
+            <summary>
+            NeedUpdateLoadEventArgs
+            </summary>
+            <param name="needUpdateLoad"></param>
+        </member>
+        <member name="T:CommonClasses.UpdateLoadErrorEventArgs">
+            <summary>
+            UpdateLoadErrorEventArgs
+            </summary>
+        </member>
+        <member name="P:CommonClasses.UpdateLoadErrorEventArgs.UpdateLoadError">
+            <summary>
+            UpdateLoadError
+            </summary>
+        </member>
+        <member name="M:CommonClasses.UpdateLoadErrorEventArgs.#ctor(System.Boolean)">
+            <summary>
+            UpdateLoadErrorEventArgs
+            </summary>
+            <param name="updateLoadError"></param>
+        </member>
+        <member name="T:CommonClasses.UpdateIsReadyEventArgs">
+            <summary>
+            UpdateIsReadyEventArgs
+            </summary>
+        </member>
+        <member name="P:CommonClasses.UpdateIsReadyEventArgs.UpdateIsReady">
+            <summary>
+            UpdateIsReady
+            </summary>
+        </member>
+        <member name="M:CommonClasses.UpdateIsReadyEventArgs.#ctor(System.Boolean)">
+            <summary>
+            UpdateIsReadyEventArgs
+            </summary>
+            <param name="updateIsReady"></param>
+        </member>
+        <member name="T:CommonClasses.ChangeUpdateDayEventArgs">
+            <summary>
+            ChangeUpdateDayEventArgs
+            </summary>
+        </member>
+        <member name="P:CommonClasses.ChangeUpdateDayEventArgs.UpdateDay">
+            <summary>
+            UpdateDay
+            </summary>
+        </member>
+        <member name="M:CommonClasses.ChangeUpdateDayEventArgs.#ctor(System.Int32)">
+            <summary>
+            ChangeUpdateDayEventArgs
+            </summary>
+            <param name="updateDay"></param>
+        </member>
+        <member name="T:CommonClasses.Update">
+            <summary>
+            Route is update application
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.InfoUpdates">
+            <summary>
+            Array updates data
+            </summary>
+        </member>
+        <member name="E:CommonClasses.Update.OnInfoUpdatesChanged">
+            <summary>
+            OnInfoUpdatesChanged
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.NeedUpdateLoad">
+            <summary>
+            NeedUpdateLoad
+            </summary>
+        </member>
+        <member name="E:CommonClasses.Update.OnNeedUpdateLoad">
+            <summary>
+            OnNeedUpdateLoad
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.UpdateLoadError">
+            <summary>
+            UpdateLoadError
+            </summary>
+        </member>
+        <member name="E:CommonClasses.Update.OnUpdateLoadError">
+            <summary>
+            OnUpdateLoadError
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.UpdateIsReady">
+            <summary>
+            UpdateIsReady
+            </summary>
+        </member>
+        <member name="E:CommonClasses.Update.OnUpdateIsReady">
+            <summary>
+            OnUpdateIsReady
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.Server">
+            <summary>
+            Server
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.Port">
+            <summary>
+            Port
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.Service">
+            <summary>
+            Service
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.APIVersion">
+            <summary>
+            APIVersion
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.Component">
+            <summary>
+            Component
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.Channel">
+            <summary>
+            Channel for verify updates
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.OS">
+            <summary>
+            Type OS
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.LastVersionInfo">
+            <summary>
+            LastVersionInfo
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.LastVersion">
+            <summary>
+            LastVersion
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.isCriticalLastVersion">
+            <summary>
+            isCriticalLastVersion
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.CurrentVersion">
+            <summary>
+            CurrentVersion
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.UpdateOnStartApplication">
+            <summary>
+            UpdateOnStartApplication
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.FreqCheckUpdate">
+            <summary>
+            FreqCheckUpdate in min.
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.WaitUpdateDay">
+            <summary>
+            WaitUpdateDay
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.SendMessageUpdateDay">
+            <summary>
+            SendMessageUpdateDay
+            </summary>
+        </member>
+        <member name="E:CommonClasses.Update.OnChangeUpdateDay">
+            <summary>
+            OnChangeUpdateDay
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.UpdateDay">
+            <summary>
+            Update day
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.UpdateNow">
+            <summary>
+            Verify update now
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.PathApplication">
+            <summary>
+            Applications path
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.PathBackup">
+            <summary>
+            Path to save backup files
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.PathUpdate">
+            <summary>
+            Path to save update files
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Update.#ctor">
+            <summary>
+            Initializing route Update
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Update.#ctor(System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Initializing route Update
+            </summary>
+            <param name="server"></param>
+            <param name="port"></param>
+            <param name="service"></param>
+            <param name="apiVersion"></param>
+            <param name="component"></param>
+        </member>
+        <member name="M:CommonClasses.Update.#ctor(System.String,System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializing route Update
+            </summary>
+            <param name="server"></param>
+            <param name="port"></param>
+            <param name="service"></param>
+            <param name="apiVersion"></param>
+            <param name="component"></param>
+            <param name="channel"></param>
+        </member>
+        <member name="M:CommonClasses.Update.IsUpdateAvailable(System.String,System.String,CommonClasses.Routes.VersionInfo@)">
+            <summary>
+            Verify update available
+            </summary>
+            <param name="channel"></param>
+            <param name="currentVersion"></param>
+            <param name="versionInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetChannels">
+            <summary>
+            Get array channels
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetActualVersion(System.String)">
+            <summary>
+            Get actual version
+            </summary>
+            <param name="channel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetActualVersion">
+            <summary>
+            Get actual version
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetActualVersionInfo(System.String)">
+            <summary>
+            Get actual version info
+            </summary>
+            <param name="channel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetActualVersionInfo">
+            <summary>
+            Get actual version info
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetUpdatesInfo(System.String,CommonClasses.Routes.VersionInfo[]@)">
+            <summary>
+            Get array updates to last version
+            </summary>
+            <param name="currentVersion"></param>
+            <param name="versionInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetDetailVersionInfo(System.String)">
+            <summary>
+            Get details data about of version
+            </summary>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetFilesChanges(System.String,System.String)">
+            <summary>
+            Get files changes
+            </summary>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetInstallPackage(System.String,System.String)">
+            <summary>
+            Download install package
+            </summary>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetLastInstallPackage(System.String)">
+            <summary>
+            Download last install package
+            </summary>
+            <param name="platform"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetArchivePackage(System.String,System.String)">
+            <summary>
+            Download archive package
+            </summary>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetDownloadFile(System.String,System.String,System.String)">
+            <summary>
+            Download file
+            </summary>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.GetDownloadFile(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Download file
+            </summary>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <param name="filename"></param>
+            <param name="destPath"></param>
+            <param name="destFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.CompareFiles(System.String,System.String,System.String)">
+            <summary>
+            Compare files
+            </summary>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.CompareFiles(System.String,CommonClasses.ClassesExtension.FileData[])">
+            <summary>
+            Compare files
+            </summary>
+            <param name="pathSource"></param>
+            <param name="changedFiles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.VerifyDirectory(System.String,System.String,CommonClasses.ClassesExtension.FileData[]@)">
+            <summary>
+            Directories verify
+            </summary>
+            <param name="sourceFilePath"></param>
+            <param name="destinationFilePath"></param>
+            <param name="changedFiles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.CreateBackup(System.String,System.String,System.String)">
+            <summary>
+            Create backup
+            </summary>
+            <param name="version"></param>
+            <param name="path"></param>
+            <param name="pathBackup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.DownloadFilesChanged(System.String[],System.String)">
+            <summary>
+            Download changed files
+            </summary>
+            <param name="changedFiles"></param>
+            <param name="pathUpdate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.DownloadFilesChanged(System.String,System.String,System.String)">
+            <summary>
+            Download changed files
+            </summary>
+            <param name="version"></param>
+            <param name="platform"></param>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.MoveFile(System.String,System.String)">
+            <summary>
+            Move files
+            </summary>
+            <param name="sourceFilePath"></param>
+            <param name="destinationFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.isGreateOrEqualVersion(System.String,System.String)">
+            <summary>
+            isGreateOrEqualVersion
+            </summary>
+            <param name="currentVersion"></param>
+            <param name="targetVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.isGreateVersion(System.String,System.String)">
+            <summary>
+            isGreateVersion
+            </summary>
+            <param name="currentVersion"></param>
+            <param name="targetVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.StartCheckUpdates(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Start check updates
+            </summary>
+            <param name="secondsInterval"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.StartLoadUpdate(System.Threading.CancellationToken)">
+            <summary>
+            Start load update
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CommonClasses.Update.LastLoadedVersion">
+            <summary>
+            LastLoadedVersion
+            </summary>
+        </member>
+        <member name="P:CommonClasses.Update.NewVersionLoadedToday">
+            <summary>
+            NewVersionLoadedToday
+            </summary>
+        </member>
+        <member name="M:CommonClasses.Update.isVersionLoaded(System.String)">
+            <summary>
+            isVersionLoaded
+            </summary>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonClasses.Update.RunUpdate(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            RunUpdate
+            </summary>
+            <param name="path"></param>
+            <param name="pathUpdate"></param>
+            <param name="newVersion"></param>
+            <param name="restartApplication"></param>
+        </member>
+        <member name="M:CommonClasses.Update.RunUpdate(System.Boolean)">
+            <summary>
+            RunUpdate
+            </summary>
+            <param name="restartApplication"></param>
+        </member>
+    </members>
+</doc>
